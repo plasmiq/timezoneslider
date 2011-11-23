@@ -1,0 +1,5 @@
+<div class="sliders">
+  <% @sliders.each do |slider| %>
+    <%= render :partial => "sliders/slider", :locals => {:slider => slider} %>
+  <% end %>
+</div>
