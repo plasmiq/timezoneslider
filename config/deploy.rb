@@ -30,7 +30,7 @@ namespace :deploy do
     run "cd #{current_path} && bundle exec passenger start --daemonize --environment production --port 13002"
   end
   task :stop, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && bundle exec passenger stop --pid-file tmp/pids/passenger.13001.pid"
+    run "cd #{current_path} && bundle exec passenger stop --pid-file tmp/pids/passenger.13002.pid"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
