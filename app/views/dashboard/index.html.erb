@@ -1,5 +1,13 @@
 <div class="sliders">
-  <% @sliders.each do |slider| %>
-    <%= render :partial => "sliders/slider", :locals => {:slider => slider} %>
-  <% end %>
+  <script type="text/x-handlebars">
+  {{view Sliders.CreateSliderView elementId="new-slider"}}
+  
+  {{#collection contentBinding="Sliders.slidersController" tagName="ul" }}
+     {{content.name}} - 
+     {{content.timezone}}
+  {{else}}
+    Empty
+  {{/collection}}
+  </script>
 </div>
+

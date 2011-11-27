@@ -20,6 +20,11 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'execjs'
 
+gem 'rasputin'
+gem 'slim'
+
+gem 'inherited_resources'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

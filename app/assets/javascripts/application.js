@@ -5,5 +5,7 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery_ujs
+//= require sproutcore
+//= require sproutcore-datastore
+//= require bricks/rest_data_source
 //= require_tree .
