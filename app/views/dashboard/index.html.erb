@@ -1,13 +1,10 @@
-<div class="sliders">
-  <script type="text/x-handlebars">
-  {{view Sliders.CreateSliderView elementId="new-slider"}}
-  
-  {{#collection contentBinding="Sliders.slidersController" tagName="ul" }}
-     {{content.name}} - 
-     {{content.timezone}}
-  {{else}}
-    Empty
-  {{/collection}}
-  </script>
-</div>
+<script type="text/x-handlebars">
+{{view Sliders.CreateSliderView elementId="new-slider"}}
+
+{{#collection Sliders.SlidersView class="sliders" itemClass="slider"}}
+  {{view Sliders.SliderView slider=content}}
+{{else}}
+  Empty
+{{/collection}}
+</script>
 

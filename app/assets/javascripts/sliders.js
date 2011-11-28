@@ -39,12 +39,31 @@ Sliders.slidersController = SC.ArrayProxy.create({
     //store.commitChanges(true);
     this.set("newSliderName",null);
     this.set("newSliderTimezone",null);
+  },
+  removeSlider: function(id) {
+     this.forEach(function(slider) {
+      if(slider.get("id") === id) {
+        slider.destroy();
+      }
+    }, this);
   }
   
 });
 
 Sliders.CreateSliderView = SC.View.extend({
   templateName: 'sliders/new_slider'
+});
+
+Sliders.SlidersView = SC.CollectionView.extend({
+  contentBinding: "Sliders.slidersController",
+});
+
+Sliders.SliderView = SC.View.extend({
+  templateName: 'sliders/slider',
+  
+  remove: function(evt){
+    Sliders.slidersController.removeSlider( this.get("slider").get("id") );
+  }
 });
 
 Sliders.slidersController.loadSliders();
