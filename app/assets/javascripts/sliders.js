@@ -60,10 +60,41 @@ Sliders.SlidersView = SC.CollectionView.extend({
 
 Sliders.SliderView = SC.View.extend({
   templateName: 'sliders/slider',
-  
+  contentBinding: 'parentView.content',
   remove: function(evt){
-    Sliders.slidersController.removeSlider( this.get("slider").get("id") );
+    Sliders.slidersController.removeSlider( this.get("content").get("id") );
   }
 });
+
+Sliders.Timer = SC.Object.create({
+  hasChanged: 0,
+  startTicking: function() {
+    Sliders.Timer.set("hasChanged", Sliders.Timer.get("hasChanged") + 1 );
+    setTimeout(Sliders.Timer.startTicking,1000);
+  }
+});
+
+Sliders.Timer.startTicking();
+
+Sliders.CurrentTimeView = SC.View.extend({
+  timezoneBinding: 'parentView.content.timezone',
+  template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}<br/>{{seconds}}"),
+  timerBinding: "Sliders.Timer.hasChanged",
+  classNames: ['currentTime'],
+  time: function() {
+    var d = new Date();
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
+    return (new Date(utc + (this.get("timezone")*1000)) );
+  }.property("timer"),
+  hours: function(){ 
+    return this.get("time").getHours()
+  }.property("time"),
+  minutes: function(){ 
+    return this.get("time").getMinutes()
+  }.property("time"),
+  seconds: function(){ 
+    return this.get("time").getSeconds()
+  }.property("time")
+})
 
 Sliders.slidersController.loadSliders();

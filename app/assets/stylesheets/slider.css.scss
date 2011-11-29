@@ -3,4 +3,15 @@
   height: 58px;
   width: 890px;
   margin: 20px auto;
+  .currentTime {
+    font-family: 'Open Sans'; 
+    font-weight: bold;
+    font-size: 12px;
+    font-size: 9px;
+    color: white;
+    text-align: center;
+    width: 19px;
+    height: 42px;
+    background: url("time_indicators.png");
+  }
 }

@@ -6,7 +6,7 @@ set :repository,  'git@178.63.75.143:timezoneslider'
 set :scm, :git
 set :user, 'timezoneslider'
 set :use_sudo, false
-set :app_symlinks, %w(config/database.yml)
+set :app_symlinks, %w(config/database.yml db/production.sqlite3)
 set :rvm_type, :user
 #set :stages, %w(beta)
 #set :default_stage, 'beta'
