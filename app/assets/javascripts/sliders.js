@@ -78,9 +78,7 @@ Sliders.Timer.startTicking();
 
 Sliders.CurrentTimeView = SC.View.extend({
   timezoneBinding: 'parentView.content.timezone',
-  template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}<br/>{{seconds}}"),
   timerBinding: "Sliders.Timer.hasChanged",
-  classNames: ['currentTime'],
   time: function() {
     var d = new Date();
     var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
@@ -95,6 +93,29 @@ Sliders.CurrentTimeView = SC.View.extend({
   seconds: function(){ 
     return this.get("time").getSeconds()
   }.property("time")
+});
+
+Sliders.CurrentTimeSliderView = Sliders.CurrentTimeView.extend({
+  classNames: ['currentTimeSlider'],
+  template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}<br/>{{seconds}}")
+});
+
+Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend({
+  classNames: ['currentTimeNotifier'],
+  template: SC.Handlebars.compile("{{hours}} {{minutes}} {{seconds}}")
+});
+
+
+Sliders.RulerView = SC.View.extend({
+  timezoneBinding: 'parentView.content.timezone',
+  templateName: 'sliders/ruler',
+  classNames: ['timeline'],
+  time: function() {
+    var d = new Date();
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
+    return (new Date(utc + (this.get("timezone")*1000)) );
+  }.property(),
+  
 })
 
 Sliders.slidersController.loadSliders();

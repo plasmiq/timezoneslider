@@ -1,17 +1,63 @@
 .slider {
-  background: url("panel_background.png") 0 0 repeat-x;
-  height: 58px;
+
   width: 890px;
   margin: 20px auto;
-  .currentTime {
-    font-family: 'Open Sans'; 
-    font-weight: bold;
-    font-size: 12px;
-    font-size: 9px;
-    color: white;
-    text-align: center;
-    width: 19px;
-    height: 42px;
-    background: url("time_indicators.png");
+  position: relative;
+  .topBar {
+    height: 40px;
+    .name {
+      float: left;
+    }
+    .currentTimeNotifier {
+      font-family: 'Open Sans'; 
+      font-weight: bold;
+      font-size: 12px;
+      float: right;
+    }
+  }
+  .bottomBar{
+    position: relative;
+    background: url("panel_background.png") 0 0 no-repeat;
+    height: 58px;
+    .currentTimeSlider {
+      font-family: 'Open Sans'; 
+      font-weight: bold;
+      font-size: 12px;
+      font-size: 9px;
+      color: white;
+      text-align: center;
+      width: 19px;
+      height: 42px;
+      background: url("time_indicators.png");
+    }
+    .timeline {
+      position: absolute;
+      top: 10px;
+      left: 50px;
+      width: 790px;
+      height: 25px;
+      
+      .frame {
+        overflow: hidden;
+        height: inherit;
+        width: inherit;
+        .ruler {
+          height: inherit;
+          width: inherit;
+          background: url("panel_ruler.png") 0 0 repeat-x;  
+        }
+      }
+      .hours {
+        width: 792px;
+        div {
+          float: left;
+          font-size: 12px;
+          font-family: Arial;
+          font-weight: bold;
+          width: 33px;
+          text-align: center;
+        }
+      }
+    }
   }
 }

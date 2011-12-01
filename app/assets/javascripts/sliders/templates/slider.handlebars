@@ -1,2 +1,10 @@
-{{content.name}} - {{content.timezone}} {{#view SC.Button target=this action="remove"}}X{{/view}}
-{{view Sliders.CurrentTimeView}}
+<div class="topBar">
+  <div class="name">
+    {{content.name}} - {{content.timezone}} {{#view SC.Button target=this action="remove"}}X{{/view}}
+  </div>
+  {{view Sliders.CurrentTimeNotifierView}}
+</div>
+<div class="bottomBar">
+  {{view Sliders.CurrentTimeSliderView}}
+  {{view Sliders.RulerView}}
+</div>
