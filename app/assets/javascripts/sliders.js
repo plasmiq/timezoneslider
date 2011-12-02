@@ -97,14 +97,16 @@ Sliders.CurrentTimeView = SC.View.extend({
 
 Sliders.CurrentTimeSliderView = Sliders.CurrentTimeView.extend({
   classNames: ['currentTimeSlider'],
-  template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}<br/>{{seconds}}")
+  template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}<br/>{{seconds}}"),
+  xxxxxs: function() {
+    alert("ss");
+  }.property("timer")
 });
 
 Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend({
   classNames: ['currentTimeNotifier'],
-  template: SC.Handlebars.compile("{{hours}} {{minutes}} {{seconds}}")
+  template: SC.Handlebars.compile("{{hours}}:{{minutes}} {{seconds}}")
 });
-
 
 Sliders.RulerView = SC.View.extend({
   timezoneBinding: 'parentView.content.timezone',

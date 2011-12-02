@@ -9,10 +9,12 @@
       float: left;
     }
     .currentTimeNotifier {
+      padding: 10px 20px 0 0;
       font-family: 'Open Sans'; 
       font-weight: bold;
       font-size: 12px;
       float: right;
+      color: #c20303;
     }
   }
   .bottomBar{
@@ -45,6 +47,10 @@
           height: inherit;
           width: inherit;
           background: url("panel_ruler.png") 0 0 repeat-x;  
+          background-position: 50px 0px;
+          .phased {
+            background-position: 0px 0px;
+          } 
         }
       }
       .hours {
@@ -56,6 +62,16 @@
           font-weight: bold;
           width: 33px;
           text-align: center;
+          &.midnight {
+            span {
+              background-color: black;
+              color: white;
+              display: inline-block;
+              padding: 30px 5px 10px;
+              top: -30px;
+              position: relative;
+            }
+          }
         }
       }
     }
