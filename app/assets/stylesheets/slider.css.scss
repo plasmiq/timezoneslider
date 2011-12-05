@@ -21,7 +21,7 @@
     position: relative;
     background: url("panel_background.png") 0 0 no-repeat;
     height: 58px;
-    .currentTimeSlider {
+    .currentTimeSlider, .remoteTimeSlider {
       font-family: 'Open Sans'; 
       font-weight: bold;
       font-size: 12px;
@@ -30,8 +30,15 @@
       text-align: center;
       width: 19px;
       height: 42px;
+      position: absolute;
+      z-index: 100;
+      top: 0px;
       background: url("time_indicators.png");
+      &.remoteTimeSlider {
+        background-position: -19px 0px;
+      }
     }
+    
     .timeline {
       position: absolute;
       top: 10px;
@@ -48,6 +55,7 @@
           width: inherit;
           background: url("panel_ruler.png") 0 0 repeat-x;  
           background-position: 50px 0px;
+          cursor: pointer;
           .phased {
             background-position: 0px 0px;
           } 

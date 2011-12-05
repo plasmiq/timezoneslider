@@ -1,29 +1,9 @@
 <div class="frame">
-  <div class="ruler"></div>
+  <div class="ruler">
+    {{view Sliders.CurrentTimeSliderView}}
+    {{view Sliders.RemoteTimeSliderView}}
+  </div>
 </div>
-<div class="hours">
-  <div class="midnight"><span>0</span></div>
-  <div><span>1</span></div>
-  <div><span>2</span></div>
-  <div><span>3</span></div>
-  <div><span>4</span></div>
-  <div><span>5</span></div>
-  <div><span>6</span></div>
-  <div><span>7</span></div>
-  <div><span>8</span></div>
-  <div><span>9</span></div>
-  <div><span>10</span></div>
-  <div><span>11</span></div>
-  <div><span>12</span></div>
-  <div><span>13</span></div>
-  <div><span>14</span></div>
-  <div><span>15</span></div>
-  <div><span>16</span></div>
-  <div><span>17</span></div>
-  <div><span>18</span></div>
-  <div><span>19</span></div>
-  <div><span>20</span></div>
-  <div><span>21</span></div>
-  <div><span>22</span></div>
-  <div><span>23</span></div>
-</div>
+{{#collection class="hours" contentBinding="hours" itemTagName="div"}}
+  <span>{{content}}</span>
+{{/collection}}

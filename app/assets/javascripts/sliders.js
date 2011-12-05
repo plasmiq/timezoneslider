@@ -51,16 +51,25 @@ Sliders.slidersController = SC.ArrayProxy.create({
 });
 
 Sliders.CreateSliderView = SC.View.extend({
-  templateName: 'sliders/new_slider'
+  templateName: 'sliders/new_slider',
+  sliderBinding: 'parentView.content'
 });
 
 Sliders.SlidersView = SC.CollectionView.extend({
   contentBinding: "Sliders.slidersController",
 });
 
+Sliders.TimeZoneAutoComplete = SC.TextField.extend({
+  
+  didInsertElement: function() {
+  
+  }
+});
+
 Sliders.SliderView = SC.View.extend({
   templateName: 'sliders/slider',
   contentBinding: 'parentView.content',
+  timezoneBinding: 'parentView.content.timezone',
   remove: function(evt){
     Sliders.slidersController.removeSlider( this.get("content").get("id") );
   }
@@ -77,18 +86,29 @@ Sliders.Timer = SC.Object.create({
 Sliders.Timer.startTicking();
 
 Sliders.CurrentTimeView = SC.View.extend({
-  timezoneBinding: 'parentView.content.timezone',
+  timezoneBinding: 'parentView.timezone',
   timerBinding: "Sliders.Timer.hasChanged",
+  phase: 0,
   time: function() {
     var d = new Date();
     var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
-    return (new Date(utc + (this.get("timezone")*1000)) );
+    return ( 
+      new Date( utc + (this.get("timezone")*1000) + (this.get("phase")*1000) ) 
+    );
   }.property("timer"),
   hours: function(){ 
-    return this.get("time").getHours()
+    var h = this.get("time").getHours();
+    if(h < 10) {
+      h = '0'+h;    
+    }
+    return h;
   }.property("time"),
   minutes: function(){ 
-    return this.get("time").getMinutes()
+    var m = this.get("time").getMinutes();
+    if(m < 10) {
+      m = '0'+m;    
+    }
+    return m;
   }.property("time"),
   seconds: function(){ 
     return this.get("time").getSeconds()
@@ -98,14 +118,40 @@ Sliders.CurrentTimeView = SC.View.extend({
 Sliders.CurrentTimeSliderView = Sliders.CurrentTimeView.extend({
   classNames: ['currentTimeSlider'],
   template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}<br/>{{seconds}}"),
-  xxxxxs: function() {
-    alert("ss");
-  }.property("timer")
+  left: function() {
+    this.$().animate("left","+1px");
+  }.observes("timer"),
+  style: function() {
+    return "left: 200px"
+  }.property(),
+  attributeBindings: ['style']
 });
+
+Sliders.RemoteTimeSliderView = Sliders.CurrentTimeView.extend({
+  classNames: ['remoteTimeSlider'],
+  leftBinding: "Sliders.RemoteTimeController.left",
+  style: function() {
+    return "left: " + Sliders.RemoteTimeController.get("left") + "px";
+  }.property("left"),
+  phase: function() {
+    return this.get("left");
+  }.property("left"),
+  attributeBindings: ['style'],
+  template: SC.Handlebars.compile("{{left}}<br/>{{hours}}<br/>{{minutes}}<br/>{{seconds}}")
+})
 
 Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend({
   classNames: ['currentTimeNotifier'],
   template: SC.Handlebars.compile("{{hours}}:{{minutes}} {{seconds}}")
+});
+
+Sliders.RemoteTimeController = SC.Object.create({
+  left: 0,
+  res: 17,
+  updateRemoteTime: function( position ){ 
+    var l = parseInt(position / this.get('res')) * this.get('res');
+    this.set("left", l);
+  }
 });
 
 Sliders.RulerView = SC.View.extend({
@@ -117,7 +163,17 @@ Sliders.RulerView = SC.View.extend({
     var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
     return (new Date(utc + (this.get("timezone")*1000)) );
   }.property(),
-  
+  hours: [0,1,2,3],
+  click: function(e) {
+    var Element = e.target ;
+    var CalculatedTotalOffsetLeft = 0;
+    while (Element.offsetParent)
+    {
+      CalculatedTotalOffsetLeft += Element.offsetLeft;
+      Element = Element.offsetParent;
+    }
+    Sliders.RemoteTimeController.updateRemoteTime(e.pageX - CalculatedTotalOffsetLeft)
+  }
 })
 
 Sliders.slidersController.loadSliders();
