@@ -140,10 +140,6 @@ Sliders.RemoteTimeSliderView = Sliders.CurrentTimeView.extend({
   template: SC.Handlebars.compile("{{left}}<br/>{{hours}}<br/>{{minutes}}<br/>{{seconds}}")
 })
 
-Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend({
-  classNames: ['currentTimeNotifier'],
-  template: SC.Handlebars.compile("{{hours}}:{{minutes}} {{seconds}}")
-});
 
 Sliders.RemoteTimeController = SC.Object.create({
   left: 0,
@@ -163,7 +159,14 @@ Sliders.RulerView = SC.View.extend({
     var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
     return (new Date(utc + (this.get("timezone")*1000)) );
   }.property(),
-  hours: [0,1,2,3],
+  hours: [],
+  didInsertElement: function() {
+    var hours = [];
+    for(var i = 0; i < 24; i++) {
+      hours[i] = i;
+    }
+    this.set("hours",hours)
+  },
   click: function(e) {
     var Element = e.target ;
     var CalculatedTotalOffsetLeft = 0;

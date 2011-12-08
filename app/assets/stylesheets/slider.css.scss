@@ -5,16 +5,50 @@
   position: relative;
   .topBar {
     height: 40px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
     .name {
       float: left;
+      margin: 10px 0 0 50px;
+      position: relative;
+      input, button {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        left: -30px;
+        top: 3px;
+        background: url("panel_delete.png");
+        border: 0px;
+        display: block;
+      }
     }
     .currentTimeNotifier {
-      padding: 10px 20px 0 0;
-      font-family: 'Open Sans'; 
-      font-weight: bold;
-      font-size: 12px;
+      margin: 10px 50px 0 0;
       float: right;
-      color: #c20303;
+      .time {
+        margin-left: 10px;
+        font-size: 16px;
+        color: #c20303;
+        .invisible {
+          -moz-opacity: 0.00;
+          -khtml-opacity: 0.00;
+          opacity: 0.00;
+          -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+          filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+          filter: alpha(opacity=0);
+        }
+        .ampm {
+          font-size: 12px;
+        }
+      }
+      .date {
+        margin-left: 10px;
+        font-size: 12px;
+        color: #615144;
+      }
     }
   }
   .bottomBar{

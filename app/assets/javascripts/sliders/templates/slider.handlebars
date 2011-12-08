@@ -1,6 +1,6 @@
 <div class="topBar">
   <div class="name">
-    {{content.name}} - {{content.timezone}} {{#view SC.Button target=this action="remove"}}X{{/view}}
+    {{#view SC.Button target=this action="remove"}}{{/view}}{{content.name}}
   </div>
   {{view Sliders.CurrentTimeNotifierView}}
 </div>
