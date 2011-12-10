@@ -4,6 +4,6 @@
   timezoneBinding: 'parentView.content.timezone'
   
   remove: (evt) ->
-    Sliders.slidersController.removeSlider( this.get("content").get("id") );
+    Sliders.SlidersController.removeSlider( this.get("content").get("id") );
 })
 

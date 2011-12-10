@@ -42,3 +42,7 @@ menu {
   width: 960px;
   margin: 0 auto;
 }
+
+.ui-autocomplete {
+  z-index: 300 !important;
+}
