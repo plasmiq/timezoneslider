@@ -79,7 +79,15 @@
       left: 50px;
       width: 790px;
       height: 25px;
-      
+      &.halfhour {
+        .hours {
+          position: relative;
+          left: -18px;  
+        }
+        .ruler {
+          background-position: -33px 0px !important;
+        }
+      }
       .frame {
         overflow: hidden;
         height: inherit;
@@ -90,13 +98,11 @@
           background: url("panel_ruler.png") 0 0 repeat-x;  
           background-position: 50px 0px;
           cursor: pointer;
-          .phased {
-            background-position: 0px 0px;
-          } 
         }
       }
       .hours {
-        width: 792px;
+        width: 825px;
+        margin-top: 5px;
         div {
           float: left;
           font-size: 12px;
