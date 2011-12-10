@@ -1,6 +1,6 @@
 @Sliders.CurrentTimeView = SC.View.extend({
   timezoneBinding: 'parentView.timezone'
-  timerBinding: "Sliders.Timer.hasChanged"
+  timerBinding: "Sliders.TimerController.hasChanged"
   phase: 0 
   
   time: (->

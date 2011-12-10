@@ -39,7 +39,7 @@
   
   dayNumber: (-> 
     time = this.get "time"
-    num = time.getDay()
+    num = time.getDate()
     if num < 10 then "0"+num else num
   ).property "hours"
 })

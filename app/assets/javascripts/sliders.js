@@ -2,23 +2,12 @@ Sliders = SC.Application.create({
   store: SC.Store.create({commitRecordsAutomatically: true}).from('SB.RestDataSource')
 });
 
-Sliders.Slider = SC.Record.extend({
-  primaryKey: 'id',
-  
-
-  name: SC.Record.attr(String, {isRequired: true}),
-  timezone: SC.Record.attr(String, {defaultValue: false}),
-  
-});
-
-Sliders.Slider.resourceName = 'sliders';
-
-Sliders.slidersController = SC.ArrayProxy.create({
+Sliders.SlidersController = SC.ArrayProxy.create({
   content: [],
   newSliderName: null,
   newSliderTimezone: null,
   loadSliders: function() {
-    var query = SC.Query.local(Sliders.Slider, {orderBy: 'created_at DESC'}),
+    var query = SC.Query.local(Sliders.Slider, {orderBy: 'created_at ASC'}),
         data = Sliders.store.find(query);
     data.addObserver('status', this, function observer() {
       if (data.get('status') === SC.Record.READY_CLEAN) {
@@ -51,24 +40,11 @@ Sliders.slidersController = SC.ArrayProxy.create({
 });
 
 Sliders.SlidersView = SC.CollectionView.extend({
-  contentBinding: "Sliders.slidersController",
+  contentBinding: "Sliders.SlidersController",
 });
 
-Sliders.TimeZoneAutoComplete = SC.TextField.extend({
-  
-  didInsertElement: function() {
-  
-  }
-});
-
-Sliders.Timer = SC.Object.create({
-  hasChanged: 0,
-  startTicking: function() {
-    Sliders.Timer.set("hasChanged", Sliders.Timer.get("hasChanged") + 1 );
-    setTimeout(Sliders.Timer.startTicking,1000);
-  }
-});
-
-Sliders.Timer.startTicking();
-
-Sliders.slidersController.loadSliders();
+$(function() {
+  Sliders.Slider.resourceName = 'sliders';
+  Sliders.TimerController.startTicking();
+  Sliders.SlidersController.loadSliders();
+})
