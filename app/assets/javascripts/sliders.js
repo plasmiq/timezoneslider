@@ -6,6 +6,7 @@ Sliders.SlidersController = SC.ArrayProxy.create({
   content: [],
   newSliderName: null,
   newSliderTimezone: null,
+  newSliderLocation: null,
   loadSliders: function() {
     var query = SC.Query.local(Sliders.Slider, {orderBy: 'created_at ASC'}),
         data = Sliders.store.find(query);
@@ -23,11 +24,13 @@ Sliders.SlidersController = SC.ArrayProxy.create({
     //var store = Todos.store.chain();
     var storeKey = Sliders.store.createRecord(Sliders.Slider, {
       name: this.get("newSliderName"),
-      timezone: this.get("newSliderTimezone")
+      timezone: this.get("newSliderTimezone"),
+      location: this.get("newSliderLocation")
     });
     //store.commitChanges(true);
     this.set("newSliderName",null);
     this.set("newSliderTimezone",null);
+    this.set("newSliderLocation",null);
   },
   removeSlider: function(id) {
      this.forEach(function(slider) {

@@ -12,7 +12,8 @@
    
   select: ( event, ui ) ->
     if ( ui.item ) 
-      event.target.value = ui.item.value;
+      Sliders.SlidersController.set("newSliderLocation", ui.item.label)
+      Sliders.SlidersController.set("newSliderTimezone", ui.item.value)
       event.preventDefault();
     
   focus: ( event, ui ) ->

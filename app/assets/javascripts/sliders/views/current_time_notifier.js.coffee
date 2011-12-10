@@ -3,7 +3,7 @@
   
   templateName: "sliders/current_time_notifier"
   
-  locationBinding: "parentView.timezone"
+  locationBinding: "parentView.location"
   
   hour: (->
     hour = this.get("hours");
