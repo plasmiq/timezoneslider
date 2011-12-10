@@ -13,8 +13,9 @@
     shift = Sliders.LocalTimeController.getHoursShift( @get("timezone") )
     s = Math.ceil(shift) 
     h = @get("hours")
-    hours = h[s..23]
-    hours = hours.concat h[0..s-1] if s > 0
+    hours = h[0..23] if s == 0
+    hours = h[s..23].concat h[0..s-1] if s != 0
+    #hours = h[s..23].concat h[0..s-1] if s < 0
     @set("hours", hours )    
     if shift % 1 != 0 
       this.$().addClass("halfhour")

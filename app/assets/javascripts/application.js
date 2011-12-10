@@ -8,6 +8,5 @@
 //= require jquery-ui/jquery-ui
 //= require sproutcore
 //= require sproutcore-datastore
-//= require jquery-ui/sproutcore-jui
 //= require bricks/rest_data_source
 //= require_tree .

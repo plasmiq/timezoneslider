@@ -2,6 +2,6 @@
   getHoursShift: (shift) ->
     remote = shift
     local = (new Date()).getTimezoneOffset() * (-60) 
-    ( local - remote ) / 3600
+    ( remote - local ) / 3600
 })
 
