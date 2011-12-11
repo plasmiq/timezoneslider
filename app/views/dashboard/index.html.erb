@@ -1,10 +1,11 @@
 <script type="text/x-handlebars">
 {{view Sliders.CreateSliderView elementId="new-slider"}}
-
-{{#collection Sliders.SlidersView class="sliders" itemClass="slider"}}
-  {{view Sliders.SliderView}}
-{{else}}
-  Empty
-{{/collection}}
+<div class="content">
+  {{#collection Sliders.SlidersView class="sliders" itemClass="slider"}}
+    {{view Sliders.SliderView}}
+  {{else}}
+    Empty
+  {{/collection}}
+</div>
 </script>
 

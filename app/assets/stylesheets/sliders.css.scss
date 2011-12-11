@@ -1,3 +1,38 @@
 // Place all the styles related to the sliders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new-slider {
+  background: url("header_utility_tile.png") repeat-x;
+  height: 43px;
+  .left {
+    float: left;
+    font-size: 15px;
+    color: #707070;
+    font-style: italic;
+    font-family: 'Open Sans';
+    padding: 8px 0 0 20px;
+  }
+  .right {
+    float: right;
+  }
+  #new_slider_button {
+    background: url("header_utility_add_button.png") no-repeat;
+    height: 23px;
+    width: 23px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    &:hover {
+      background-position: -23px 0;
+    }
+  }
+  .new_slider_input {
+    width: 211px;
+    height: 24px;
+    background: url("header_utility_inputs.png") no-repeat;
+    border: 0px;
+    padding: 0px;
+    margin: 10px  0 0 0 ;
+  }
+}
