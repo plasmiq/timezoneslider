@@ -105,22 +105,17 @@
       .hours {
         width: 825px;
         margin-top: 5px;
-        div {
+        
+        table {
           float: left;
           font-size: 12px;
           font-family: Arial;
           font-weight: bold;
           width: 33px;
           text-align: center;
-          &.midnight {
-            span {
-              background-color: black;
-              color: white;
-              display: inline-block;
-              padding: 30px 5px 10px;
-              top: -30px;
-              position: relative;
-            }
+          td.midnight {
+            background-color: black;
+            color: white;
           }
         }
       }
