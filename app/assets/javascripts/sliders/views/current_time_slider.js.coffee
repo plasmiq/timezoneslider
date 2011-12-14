@@ -17,9 +17,7 @@
 
   minutesTodayBinding: "Sliders.LocalTimeController.minutesToday"
 
-  style: (->    
-    #shift = Sliders.LocalTimeController.getHoursShift( @get("timezone") )
-    #time = ( @get("hours") * 60 )  + @get("minutes") + ( shift * 60 ) + @get("offset") * 2
+  style: (->
     time = @get("minutesToday")
     panel_width = 790
     minutes_per_day = 60 * 24

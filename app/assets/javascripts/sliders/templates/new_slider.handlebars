@@ -1,10 +1,10 @@
 <div class="content">
-  <div class="left">
-    sync around the world when time aligns ...
+  <div class="tagline">
+    
   </div>
   <div class="right">
-    {{view SC.TextField valueBinding="Sliders.SlidersController.newSliderName" class="new_slider_input"}}
-    {{view Sliders.TimeZoneAutoComplete valueBinding="Sliders.SlidersController.newSliderLocation" class="new_slider_input"}}
+    {{view SC.TextField placeholder="FRIENDS NAME" valueBinding="Sliders.SlidersController.newSliderName" class="new_slider_input"}}
+    {{view Sliders.TimeZoneAutoComplete placeholder="CITI / LOCATION" valueBinding="Sliders.SlidersController.newSliderLocation" class="new_slider_input"}}
     {{view SC.Button target="Sliders.SlidersController" id="new_slider_button" action="createSlider"}}
   </div>
 </div>

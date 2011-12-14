@@ -8,7 +8,6 @@
   
   source: "timezones/search.js"
   
-  placeholder: "Type you location",
    
   select: ( event, ui ) ->
     if ( ui.item ) 
