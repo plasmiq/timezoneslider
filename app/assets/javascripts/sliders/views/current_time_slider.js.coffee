@@ -1,7 +1,7 @@
 @Sliders.CurrentTimeSliderView = Sliders.CurrentTimeView.extend
   classNames: ['currentTimeSlider']
   
-  template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}")
+  template: SC.Handlebars.compile("{{hour}}<br/>{{minutes}}")
   
   left: (->
     this.$().animate("left","+1px");

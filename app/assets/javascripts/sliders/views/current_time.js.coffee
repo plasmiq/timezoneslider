@@ -18,6 +18,13 @@
     h
   ).property("time")
   
+  hour: (->
+    hour = this.get("hours");
+    hour = hour - 12 if (hour   > 12)  
+    hour = 12 if (hour   == 0) 
+    hour
+  ).property "hours"
+  
   minutes: (->
     m = this.get("time").getMinutes();
     if(m < 10)

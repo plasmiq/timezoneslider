@@ -4,14 +4,7 @@
   templateName: "sliders/current_time_notifier"
   
   locationBinding: "parentView.location"
-  
-  hour: (->
-    hour = this.get("hours");
-    hour = hour - 12 if (hour   > 12)  
-    hour = 12 if (hour   == 0) 
-    hour
-  ).property "hours" 
-  
+   
   tickerClass: (->
     if this.get("seconds") % 2 then "invisible" else "s"
   ).property "seconds"

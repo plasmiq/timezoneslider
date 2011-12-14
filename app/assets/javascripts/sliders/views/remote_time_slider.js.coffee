@@ -1,5 +1,5 @@
 @Sliders.RemoteTimeSliderView = Sliders.CurrentTimeView.extend({
-  template: SC.Handlebars.compile("{{hours}}<br/>{{minutes}}")
+  template: SC.Handlebars.compile("{{hour}}<br/>{{minutes}}")
   classNames: ['remoteTimeSlider']
   
   leftBinding: "Sliders.RemoteTimeController.left"
