@@ -1,9 +1,10 @@
-@Sliders.RemoteTimeController = SC.Object.create({
-  left: 0
-  res: 17
+@Sliders.RemoteTimeController = SC.Object.create
   
   updateRemoteTime: ( position ) -> 
-    l = parseInt(position / this.get('res')) * this.get('res')
-    this.set("left", l)
-})
+    m = position * 60 * 24
+    @set("minutesToday", m)
+    
+  minutesToday: null
+    
+  
 

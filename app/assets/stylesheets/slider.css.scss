@@ -70,6 +70,9 @@
       &.remoteTimeSlider {
         background-position: -19px 0px;
       }
+      &.hidden {
+        display: none;
+      }
     }
     
     .timeline {

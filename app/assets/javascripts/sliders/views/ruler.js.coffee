@@ -1,4 +1,4 @@
-@Sliders.RulerView = SC.View.extend({
+@Sliders.RulerView = SC.View.extend
   templateName: 'sliders/ruler'
   classNames: ['timeline']
   
@@ -28,7 +28,9 @@
     while Element.offsetParent
       CalculatedTotalOffsetLeft += Element.offsetLeft
       Element = Element.offsetParent
-
-    Sliders.RemoteTimeController.updateRemoteTime(e.pageX - CalculatedTotalOffsetLeft)
-
-})
+    
+    ruler_width = 790;
+    position = (e.pageX - CalculatedTotalOffsetLeft)/790.0
+    
+    Sliders.RemoteTimeController.updateRemoteTime( position )
+    e.stopPropagation()
