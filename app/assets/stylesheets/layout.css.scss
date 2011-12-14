@@ -2,6 +2,11 @@ body {
   margin: 0px;
   padding: 0px;
   background: url("timezoneslider_bg.png") 0 0 repeat;
+  height: 100%;
+}
+
+a {
+  outline: 0;
 }
 
 menu {
@@ -30,6 +35,47 @@ menu {
     height: 60px;
     float: right;
     margin-right: 40px;
+  }
+}
+
+.core {
+  margin: 0 auto 150px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: #121212;
+  z-index: 1000;
+}
+
+#footer {
+  margin: 25px 50px;
+  font-family: arial;
+  font-size: 12px; 
+  color: #909090;
+  
+  #copyrights {
+    float: left;
+  }
+  
+  #paypal {
+    float: left;
+    margin-left: 40px;
+    position: relative;
+    top: -5px;
+  }
+  
+  #plasmiq {
+    float: right;
+    position: relative;
+    top: -15px;
+    display: block;
+    background: url("powered_by_plasmiq.png");
+    width: 151px;
+    height: 39px;
   }
 }
 
