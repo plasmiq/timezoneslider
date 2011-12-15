@@ -12,6 +12,10 @@
 
   minutesTodayBinding: "Sliders.RemoteTimeController.minutesToday"
 
+  phase: (->
+    -24*60+@get("minutesToday")+2*60-15
+  ).property("minutesToday")
+
   style: (->
     time = @get("minutesToday")
     panel_width = 790

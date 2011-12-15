@@ -9,7 +9,7 @@
   ).property().cacheable()
   
   time: (->
-    new Date( @get("date") + (this.get("timezone")*1000) + (this.get("phase")*1000) ) 
+    new Date( @get("date") + (this.get("timezone")*1000) + (this.get("phase") * 60 * 1000 ) ) 
   ).property("timer")
   
   _timeFormat: (number)->
