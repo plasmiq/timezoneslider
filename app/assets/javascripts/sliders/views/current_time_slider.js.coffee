@@ -18,7 +18,7 @@
   minutesTodayBinding: "Sliders.LocalTimeController.minutesToday"
 
   style: (->
-    time = @get("minutesToday")
+    time = 30 + @get("minutesToday")
     panel_width = 790
     minutes_per_day = 60 * 24
     pos = time * panel_width / minutes_per_day

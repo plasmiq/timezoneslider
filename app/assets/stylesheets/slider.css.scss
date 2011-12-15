@@ -87,7 +87,7 @@
           left: -18px;  
         }
         .ruler {
-          background-position: -33px 0px !important;
+          background-position: 50px 0px !important;
         }
       }
       .frame {
@@ -97,8 +97,8 @@
         .ruler {
           height: inherit;
           width: inherit;
-          background: url("panel_ruler.png") 0 0 repeat-x;  
-          background-position: 50px 0px;
+          background: url("panel_ruler.png") 0px 0 repeat-x;  
+          background-position: -33px 0px;
           cursor: pointer;
         }
       }
