@@ -6,7 +6,7 @@
   date: (->
     d = new Date()
     d.getTime() + (d.getTimezoneOffset() * 60000)
-  ).property().cacheable()
+  ).property()
   
   time: (->
     new Date( @get("date") + (this.get("timezone")*1000) + (this.get("phase") * 60 * 1000 ) ) 
@@ -25,4 +25,8 @@
   minutes: (->
     m = this.get("time").getMinutes();
     @_timeFormat m
+  ).property("time").cacheable()
+  
+  s: (->
+    this.get("time").getSeconds();
   ).property("time")

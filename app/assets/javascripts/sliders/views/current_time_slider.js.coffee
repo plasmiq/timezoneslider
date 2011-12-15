@@ -3,12 +3,6 @@
   
   template: SC.Handlebars.compile("{{hour}}<br/>{{minutes}}")
   
-  offset: 0
-  
-  calculateOffset: (->
-    @set( "offset", @get("offset") + 1 )
-  ).observes("timer")
-  
   startPosition: (->
     margin_left = 50
     slider_width = 19
@@ -22,7 +16,7 @@
     panel_width = 790
     minutes_per_day = 60 * 24
     pos = time * panel_width / minutes_per_day
-    "left: " + (@get("startPosition") + pos) + "px"
-  ).property("offset")
+    "left: " + (@get("startPosition") + pos  ) + "px"
+  ).property("minutesToday")
   
   attributeBindings: ['style']
