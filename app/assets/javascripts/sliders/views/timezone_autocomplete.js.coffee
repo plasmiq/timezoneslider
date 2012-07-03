@@ -1,4 +1,4 @@
-@Sliders.TimeZoneAutoComplete = SC.TextField.extend      
+@Sliders.TimeZoneAutoComplete = Ember.TextField.extend      
   didInsertElement: ->
     options = {}
     for opt in ['source','select','focus']

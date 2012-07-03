@@ -1,5 +1,5 @@
-@Sliders.HourView = SC.View.extend
-  template: SC.Handlebars.compile("<tr><td>{{hour}}</td></tr>")
+@Sliders.HourView = Ember.View.extend
+  template: Ember.Handlebars.compile("<tr><td>{{hour}}</td></tr>")
   
   tagName: "table"
   hourBinding: "parentView.content"

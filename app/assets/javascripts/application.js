@@ -5,8 +5,6 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery-ui/jquery-ui
-//= require sproutcore
-//= require sproutcore-datastore
-//= require bricks/rest_data_source
+//= require jquery-ui
+//= require ember
 //= require_tree .

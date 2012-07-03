@@ -1,7 +1,7 @@
 @Sliders.CurrentTimeSliderView = Sliders.CurrentTimeView.extend
   classNames: ['currentTimeSlider']
   
-  template: SC.Handlebars.compile("{{hour}}<br/>{{minutes}}")
+  template: Ember.Handlebars.compile("{{hour}}<br/>{{minutes}}")
   
   startPosition: (->
     margin_left = 50

@@ -1,5 +1,5 @@
 @Sliders.RemoteTimeSliderView = Sliders.CurrentTimeView.extend
-  template: SC.Handlebars.compile("{{hour}}<br/>{{minutes}}")
+  template: Ember.Handlebars.compile("{{hour}}<br/>{{minutes}}")
   classNames: ['remoteTimeSlider']
  
   attributeBindings: ['style']

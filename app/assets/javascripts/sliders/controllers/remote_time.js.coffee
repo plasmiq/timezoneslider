@@ -1,4 +1,4 @@
-@Sliders.RemoteTimeController = SC.Object.create
+@Sliders.RemoteTimeController = Ember.Object.create
   
   updateRemoteTime: ( position ) -> 
     m = position * 60 * 24

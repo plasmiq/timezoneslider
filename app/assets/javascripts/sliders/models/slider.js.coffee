@@ -1,9 +1,6 @@
-@Sliders.Slider = SC.Record.extend({
-  primaryKey: 'id',
-  
-  name: SC.Record.attr(String, {isRequired: true}),
-  location: SC.Record.attr(String, {defaultValue: false}),
-  timezone: SC.Record.attr(Number, {defaultValue: false}),
-  
+@Sliders.Slider = Ember.Object.extend({
+  id: (->
+  	return this.get("name")+this.get("timezone")
+  ).property()
 });
 

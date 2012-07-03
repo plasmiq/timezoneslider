@@ -1,4 +1,4 @@
-@Sliders.CreateSliderView = SC.View.extend({
-  templateName: 'sliders/new_slider'
+@Sliders.CreateSliderView = Ember.View.extend({
+  templateName: 'sliders/templates/new_slider'
   sliderBinding: 'parentView.content'
 })

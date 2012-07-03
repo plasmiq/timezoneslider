@@ -1,7 +1,7 @@
 @Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend({
   classNames: ['currentTimeNotifier']
   
-  templateName: "sliders/current_time_notifier"
+  templateName: "sliders/templates/current_time_notifier"
   
   locationBinding: "parentView.location"
      

@@ -1,4 +1,4 @@
-@Sliders.TimerController = SC.Object.create({
+@Sliders.TimerController = Ember.Object.create({
   hasChanged: 0
   startTicking: ->
     Sliders.TimerController.set("hasChanged", Sliders.TimerController.get("hasChanged") + 1 );
