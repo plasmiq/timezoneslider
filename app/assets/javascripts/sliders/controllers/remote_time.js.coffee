@@ -5,6 +5,3 @@
     @set("minutesToday", m)
     
   minutesToday: null
-    
-  
-
