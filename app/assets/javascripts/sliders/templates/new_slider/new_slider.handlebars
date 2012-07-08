@@ -3,8 +3,8 @@
     
   </div>
   <div class="right">
-    {{view Ember.Button target="Sliders.SlidersController" id="new_slider_button" action="createSlider"}}
-    {{view Sliders.TimeZoneAutoComplete placeholder="CITI / LOCATION" valueBinding="Sliders.SlidersController.newSliderLocation" class="new_slider_input"}}
-    {{view Ember.TextField placeholder="FRIENDS NAME" valueBinding="Sliders.SlidersController.newSliderName" class="new_slider_input"}}
+    <button id="new_slider_button" {{action createSlider}}></button>
+    {{view Sliders.TimeZoneAutoComplete placeholder="CITI / LOCATION" valueBinding="location" class="new_slider_input"}}
+    {{view Ember.TextField placeholder="FRIENDS NAME" valueBinding="name" class="new_slider_input"}}
   </div>
 </div>
