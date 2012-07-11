@@ -1,5 +1,5 @@
 @Sliders.RulerView = Ember.View.extend
-  templateName: 'sliders/templates/ruller'
+  templateName: 'sliders/templates/slider/ruler'
   classNames: ['timeline']
   
   timezoneBinding: 'parentView.content.timezone'  

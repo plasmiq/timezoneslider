@@ -1,5 +1,5 @@
 @Sliders.SliderView = Ember.View.extend
-  templateName: 'sliders/templates/slider'
+  templateName: 'sliders/templates/slider/slider'
   contentBinding: 'parentView.content'
   timezoneBinding: 'parentView.content.timezone'
   locationBinding: 'parentView.content.location'
