@@ -20,13 +20,13 @@
     hour = hour - 12 if (hour   > 12)  
     hour = 12 if (hour   == 0) 
     @_timeFormat hour
-  ).property "time"
+  ).property("time","phase")
   
   minutes: (->
     m = this.get("time").getMinutes();
     @_timeFormat m
-  ).property("time").cacheable()
+  ).property("time","phase").cacheable()
   
   s: (->
     this.get("time").getSeconds();
-  ).property("time")
+  ).property("time","phase")
