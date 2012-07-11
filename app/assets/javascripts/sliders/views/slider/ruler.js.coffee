@@ -23,14 +23,11 @@
   )
   
   click: (e) ->
-    Element = e.target;
-    CalculatedTotalOffsetLeft = 0
-    while Element.offsetParent
-      CalculatedTotalOffsetLeft += Element.offsetLeft
-      Element = Element.offsetParent
-    
-    ruler_width = 790;
-    position = (e.pageX - CalculatedTotalOffsetLeft)/790.0
+    #Any ruler on screen will do as we want only X position and its width
+    ruler = $(".timeline")
+
+    #Calucate where specificly ruler was clicked on
+    position = ( e.pageX - ruler.offset().left ) / ruler.width()
     
     Sliders.RemoteTimeController.updateRemoteTime( position )
     e.stopPropagation()
