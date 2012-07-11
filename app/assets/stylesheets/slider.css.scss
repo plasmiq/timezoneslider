@@ -1,5 +1,4 @@
 .slider {
-
   width: 890px;
   margin: 20px auto;
   position: relative;
@@ -52,10 +51,17 @@
     }
   }
   .bottomBar{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     position: relative;
     background: url("panel_background.png") 0 0 no-repeat;
     height: 58px;
     .currentTimeSlider, .remoteTimeSlider {
+      cursor: pointer;
       font-family: 'Open Sans'; 
       font-weight: bold;
       font-size: 12px;
@@ -105,17 +111,28 @@
       .hours {
         width: 825px;
         margin-top: 5px;
-        
+        cursor: pointer;
+
         table {
           float: left;
           font-size: 12px;
           font-family: Arial;
           font-weight: bold;
-          width: 33px;
+          width: 21px;
           text-align: center;
+          position: relative;
+          top: -30px;
+          height: 52px;
+          margin: 0 6px;
+          td {
+            padding-bottom: 3px;
+            vertical-align: bottom;
+          }
+
           td.midnight {
             background-color: black;
             color: white;
+
           }
         }
       }
