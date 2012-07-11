@@ -9,7 +9,7 @@
     margin_left - slider_width/2  
   ).property()
 
-  minutesTodayBinding: "Sliders.LocalTimeController.minutesToday"
+  minutesTodayBinding: "Sliders.TimeController.localMinutes"
 
   style: (->
     time = 30 + @get("minutesToday")

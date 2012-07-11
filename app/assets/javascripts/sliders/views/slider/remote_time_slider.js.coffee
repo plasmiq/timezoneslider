@@ -10,7 +10,7 @@
     margin_left - slider_width/2  
   ).property()
 
-  minutesTodayBinding: "Sliders.RemoteTimeController.minutesToday"
+  minutesTodayBinding: "Sliders.TimeController.remoteMinutes"
 
   phase: (->
     -24*60+@get("minutesToday")+2*60-15

@@ -10,7 +10,7 @@
     @updateHours()
   
   updateHours: (->
-    shift = Sliders.LocalTimeController.getHoursShift( @get("timezone") )
+    shift = Sliders.TimeController.getHoursShift( @get("timezone") )
     s = Math.ceil(shift) 
     h = @get("hours")
     hours = h[0..23] if s == 0
@@ -29,5 +29,5 @@
     #Calucate where specificly ruler was clicked on
     position = ( e.pageX - ruler.offset().left ) / ruler.width()
     
-    Sliders.RemoteTimeController.updateRemoteTime( position )
+    Sliders.TimeController.updateRemoteTime( position )
     e.stopPropagation()

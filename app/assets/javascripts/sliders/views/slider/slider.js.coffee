@@ -8,4 +8,4 @@
     Sliders.SlidersController.removeSlider( this.get("content") );
     
   click: ->
-    Sliders.RemoteTimeController.set("minutesToday",null)
+    Sliders.TimeController.clearRemoteTime()

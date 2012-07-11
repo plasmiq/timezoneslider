@@ -1,6 +1,6 @@
 @Sliders.CurrentTimeView = Ember.View.extend
   timezoneBinding: 'parentView.timezone'
-  timerBinding: "Sliders.TimerController.hasChanged"
+  timerBinding: "Sliders.TimeController.hasChanged"
   phase: 0 
   
   date: (->
