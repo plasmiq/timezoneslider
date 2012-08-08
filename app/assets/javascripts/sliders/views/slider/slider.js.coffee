@@ -6,6 +6,3 @@
   
   remove: (evt) ->
     Sliders.SlidersController.removeSlider( this.get("content") );
-    
-  click: ->
-    Sliders.TimeController.clearRemoteTime()

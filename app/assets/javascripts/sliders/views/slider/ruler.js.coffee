@@ -22,7 +22,20 @@
       @set("hours", ["-"].concat @get("hours") )
   )
   
+  mouseDown: ->
+    Sliders.TimeController.startMovingRemoteTime()
+
+  mouseUp: ->
+    Sliders.TimeController.stopMovingRemoteTime()
+
+  mouseMove: (e) ->
+    if( Sliders.TimeController.isMovingRemoteTime() )
+      this.move(e)
+
   click: (e) ->
+    this.move(e)
+
+  move: (e) ->
     #Any ruler on screen will do as we want only X position and its width
     ruler = $(".timeline")
 

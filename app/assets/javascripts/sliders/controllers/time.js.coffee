@@ -2,6 +2,8 @@
   hasChanged: 0
   remoteMinutes: null
 
+  _isMovingRemoteTime: false
+
   localMinutes: (->
     d = new Date()
     d.getHours() * 60 + d.getMinutes()
@@ -23,5 +25,13 @@
   clearRemoteTime: ->
   	@set("remoteMinutes", null)
     
+  startMovingRemoteTime: ->
+    this.set("_isMovingRemoteTime",true)
   
+  stopMovingRemoteTime: ->
+    this.set("_isMovingRemoteTime",false)
+
+  isMovingRemoteTime: ->
+    return this.get("_isMovingRemoteTime")
+
 });

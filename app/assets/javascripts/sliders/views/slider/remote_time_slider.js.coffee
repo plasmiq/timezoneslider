@@ -27,3 +27,20 @@
      "display: none"
   ).property("minutesToday")
   
+  moved: false
+
+  mouseUp: ->
+    Sliders.TimeController.stopMovingRemoteTime()
+  
+  mouseDown: ->
+    Sliders.TimeController.startMovingRemoteTime()
+    this.set("moved",false)
+
+  mouseMove: ->
+    this.set("moved",true)
+
+  click: ->
+    #remove only if clicked, not while after moving
+    if( ! this.get("moved") )
+      this.set("moved",false)
+      Sliders.TimeController.clearRemoteTime()
