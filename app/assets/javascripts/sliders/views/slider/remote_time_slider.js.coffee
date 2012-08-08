@@ -13,7 +13,7 @@
   minutesTodayBinding: "Sliders.TimeController.remoteMinutes"
 
   phase: (->
-    -24*60+@get("minutesToday")+2*60-15
+    @get("minutesToday")
   ).property("minutesToday")
 
   style: (->
