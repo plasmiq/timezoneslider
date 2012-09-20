@@ -1,6 +1,6 @@
 @Sliders.CurrentTimeView = Ember.View.extend
-  timezoneBinding: 'parentView.content.timezone'
-  timerBinding: "Sliders.TimeController.hasChanged"
+  timezoneBinding:  "parentView.content.timezone"
+  timerBinding:     "Sliders.TimeController.hasChanged"
   phase: 0 
   
   date: (->
@@ -9,7 +9,7 @@
   ).property()
   
   time: (->
-    new Date( @get("date") + (this.get("timezone")*1000) + (this.get("phase") * 60 * 1000 ) ) 
+    new Date( @get("date") + (@get("timezone")*1000) + (@get("phase") * 60 * 1000 ) ) 
   ).property("timer")
   
   _timeFormat: (number)->
@@ -20,17 +20,16 @@
   ).property("time","phase")
 
   hour: (->
-    hour = this.get("time").getHours();
+    hour = @get("time").getHours();
     hour = hour - 12 if (hour   > 12)  
     hour = 12 if (hour   == 0) 
     @_timeFormat hour
   ).property("time","phase")
   
   minutes: (->
-    m = this.get("time").getMinutes();
-    @_timeFormat m
+    @_timeFormat @get("time").getMinutes();
   ).property("time","phase").cacheable()
   
   s: (->
-    this.get("time").getSeconds();
+    @get("time").getSeconds();
   ).property("time","phase")
