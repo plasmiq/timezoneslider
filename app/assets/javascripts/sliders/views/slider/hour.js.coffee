@@ -1,12 +1,11 @@
 @Sliders.HourView = Ember.View.extend
-  template: Ember.Handlebars.compile("<tr><td>{{hour}}</td></tr>")
+  template: Ember.Handlebars.compile("<tr><td>{{content}}</td></tr>")
   
   tagName: "table"
-  hourBinding: "parentView.content"
   
   style: (->
-    if( @get("hour") == 0 )
+    if( @get("content") == 0 )
       "background-color: black; color: white;"
-  ).property("hour")
+  ).property("content")
   
   attributeBindings: ['style']
