@@ -3,6 +3,8 @@
   
   template: Ember.Handlebars.compile("{{hour}}<br/>{{minutes}}")
   
+  attributeBindings: ['style']
+
   startPosition: (->
     margin_left = 50
     slider_width = 19
@@ -19,4 +21,4 @@
     "left: " + (@get("startPosition") + pos  ) + "px"
   ).property("minutesToday")
   
-  attributeBindings: ['style']
+  
