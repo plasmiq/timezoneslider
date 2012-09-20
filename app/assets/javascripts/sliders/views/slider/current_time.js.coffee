@@ -14,7 +14,11 @@
   
   _timeFormat: (number)->
     if(number < 10) then '0'+number else number
-      
+ 
+  hour24: (->
+    @get("time").getHours();
+  ).property("time","phase")
+
   hour: (->
     hour = this.get("time").getHours();
     hour = hour - 12 if (hour   > 12)  

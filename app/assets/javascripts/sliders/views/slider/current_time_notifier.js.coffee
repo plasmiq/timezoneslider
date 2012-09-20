@@ -1,19 +1,31 @@
-@Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend({
+@Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend
   classNames: ['currentTimeNotifier']
+  classNameBindings: ['remote']
   
   templateName: "sliders/templates/slider/current_time_notifier"
-  
-  locationBinding: "parentView.location"
-     
+
+  controller: Sliders.TimeController
+
+  remote: (->
+    @get("controller").get("remoteMinutes") > 0
+  ).property("controller.remoteMinutes")
+
+  phase: (->
+    if @get("remote")
+      @get("controller").get("remoteMinutes")
+    else
+      0
+  ).property("remote")
+
   ampm: (->
-    if this.get("hours")  > 11 then "PM" else "AM"
-  ).property "hours"
+    if this.get("hour24")  > 11 then "PM" else "AM"
+  ).property "hour24"
   
   dayName: (-> 
     myDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
     time = this.get "time"
     myDays[ time.getDay() ]
-  ).property "hours"
+  ).property "hour"
   
   month: (-> 
     myMonths = [
@@ -24,11 +36,10 @@
     ]
     time = this.get "time"
     myMonths[ time.getMonth() ]
-  ).property "hours"
+  ).property "hour"
   
   dayNumber: (-> 
     time = this.get "time"
     num = time.getDate()
     if num < 10 then "0"+num else num
-  ).property "hours"
-})
+  ).property "hour"
