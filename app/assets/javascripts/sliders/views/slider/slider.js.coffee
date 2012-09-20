@@ -1,8 +1,7 @@
 @Sliders.SliderView = Ember.View.extend
   templateName: 'sliders/templates/slider/slider'
-  contentBinding: 'parentView.content'
-  timezoneBinding: 'parentView.content.timezone'
-  locationBinding: 'parentView.content.location'
   
+  classNames: ["slider"]
+
   remove: (evt) ->
     Sliders.SlidersController.removeSlider( this.get("content") );
