@@ -1,17 +1,7 @@
-@Sliders.RemoteTimeSliderView = Sliders.CurrentTimeView.extend
+@Sliders.RemoteTimeSliderView = Sliders.CurrentTimeSliderView.extend
   classNames: ['remoteTimeSlider']
-
-  template: Ember.Handlebars.compile("{{hour}}<br/>{{minutes}}")
- 
-  attributeBindings: ['style']
-   
-  startPosition: (->
-    margin_left = 50
-    slider_width = 19
-    margin_left - slider_width/2  
-  ).property()
-
   minutesTodayBinding: "Sliders.TimeController.remoteMinutes"
+  moved: false
 
   style: (->
     time = @get("minutesToday")
@@ -28,8 +18,6 @@
     @get("minutesToday")
   ).property("minutesToday")
   
-  moved: false
-
   mouseUp: ->
     Sliders.TimeController.stopMovingRemoteTime()
   

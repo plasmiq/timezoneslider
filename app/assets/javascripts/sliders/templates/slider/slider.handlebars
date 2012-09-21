@@ -2,10 +2,10 @@
   <div class="name">
     {{#view Ember.Button target=this action="remove"}}{{/view}}{{view.content.name}}
   </div>
-  {{view Sliders.CurrentTimeNotifierView}}
+  {{view Sliders.CurrentTimeNotifierView locationBinding="view.content.location" localClockBinding="view.content.localClock" remoteClockBinding="view.content.remoteClock"}}
 </div>
 <div class="bottomBar">
-  {{view Sliders.CurrentTimeSliderView}}
-  {{view Sliders.RemoteTimeSliderView}}
-  {{view Sliders.RulerView}}
+  {{view Sliders.CurrentTimeSliderView clockBinding="view.content.localClock"}}
+  {{view Sliders.RemoteTimeSliderView clockBinding="view.content.remoteClock"}}
+  {{view Sliders.RulerView timezoneBinding="view.content.timezone"}}
 </div>
