@@ -1,5 +1,4 @@
-@Sliders.TimeController = Ember.Object.create({
-  hasChanged: 0
+@Sliders.TimeController = Ember.Object.create
   remoteMinutes: null
 
   _isMovingRemoteTime: false
@@ -10,7 +9,8 @@
   ).property()
 
   startTicking: ->
-    Sliders.TimeController.set("hasChanged", Sliders.TimeController.get("hasChanged") + 1 );
+    Sliders.SlidersController.content.forEach (slider)->
+      slider.updateClock()
     setTimeout(Sliders.TimeController.startTicking,1000);
 
   getHoursShift: (shift) ->
@@ -33,5 +33,3 @@
 
   isMovingRemoteTime: ->
     return this.get("_isMovingRemoteTime")
-
-});

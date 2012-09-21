@@ -1,4 +1,5 @@
 @Sliders.CurrentTimeView = Ember.View.extend
-  updateClock: (->
-    @get("parentView").get("content").updateClock(@get("phase"))
-  ).observes("timer","phase")
+  updateSliders: (->
+    @get("parentView").get("content").set("phase", @get("phase") ) 
+    @get("parentView").get("content").updateClock()
+  ).observes("phase")
