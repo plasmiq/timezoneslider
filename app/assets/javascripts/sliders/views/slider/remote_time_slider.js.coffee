@@ -17,6 +17,11 @@
   phase: (->
     @get("minutesToday")
   ).property("minutesToday")
+
+  updateSliders: (->
+    @get("parentView").get("content").set("phase", @get("phase") ) 
+    @get("parentView").get("content").updateClock()
+  ).observes("phase")
   
   mouseUp: ->
     Sliders.TimeController.stopMovingRemoteTime()

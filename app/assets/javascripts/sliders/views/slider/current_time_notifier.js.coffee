@@ -1,4 +1,4 @@
-@Sliders.CurrentTimeNotifierView = Sliders.CurrentTimeView.extend
+@Sliders.CurrentTimeNotifierView = Ember.View.extend
   templateName: "sliders/templates/slider/current_time_notifier"
   classNames: ['currentTimeNotifier']
   classNameBindings: ['remote']
