@@ -1,6 +1,6 @@
 @Sliders.RemoteTimeSliderView = Sliders.CurrentTimeSliderView.extend
   classNames: ['remoteTimeSlider']
-  minutesTodayBinding: "Sliders.TimeController.remoteMinutes"
+  minutesTodayBinding: "controller.remoteMinutes"
   sliderBinding: "parentView.content"
   moved: false
 
@@ -25,17 +25,17 @@
   ).observes("phase")
   
   mouseUp: ->
-    Sliders.TimeController.stopMovingRemoteTime()
+    @get("controller").stopMovingRemoteTime()
   
   mouseDown: ->
-    Sliders.TimeController.startMovingRemoteTime()
-    this.set("moved",false)
+    @get("controller").startMovingRemoteTime()
+    @set("moved",false)
 
   mouseMove: ->
-    this.set("moved",true)
+    @set("moved",true)
 
   click: ->
     #remove only if clicked, not while after moving
-    if( ! this.get("moved") )
-      this.set("moved",false)
-      Sliders.TimeController.clearRemoteTime()
+    if( ! @get("moved") )
+      @set("moved",false)
+      @get("controller").clearRemoteTime()

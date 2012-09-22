@@ -1,7 +1,8 @@
 @Sliders.CurrentTimeSliderView = Ember.View.extend
   template: Ember.Handlebars.compile("<div>{{clock.hour}}</div><div>{{clock.minutes}}</div>")
   classNames: ['currentTimeSlider']
-  minutesTodayBinding: "Sliders.TimeController.localMinutes"
+  controller: Sliders.TimeController
+  minutesTodayBinding: "controller.localMinutes"
   attributeBindings: ['style']
 
   startPosition: (->
