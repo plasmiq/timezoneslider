@@ -1,6 +1,7 @@
 @Sliders.RemoteTimeSliderView = Sliders.CurrentTimeSliderView.extend
   classNames: ['remoteTimeSlider']
   minutesTodayBinding: "Sliders.TimeController.remoteMinutes"
+  sliderBinding: "parentView.content"
   moved: false
 
   style: (->
@@ -19,8 +20,8 @@
   ).property("minutesToday")
 
   updateSliders: (->
-    @get("parentView").get("content").set("phase", @get("phase") ) 
-    @get("parentView").get("content").updateClock()
+    @get("slider").set("phase", @get("phase") ) 
+    @get("slider").updateClock()
   ).observes("phase")
   
   mouseUp: ->
