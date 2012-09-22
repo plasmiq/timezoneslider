@@ -8,9 +8,9 @@
   didInsertElement: ->
     shift = @get("controller").getHoursShift( @get("timezone") )
     s = Math.ceil(shift) 
-    hours = h[0..23] if s == 0
-    hours = h[s..23].concat h[0..s-1] if s != 0
-    @set("hours", hours )    
+    #Rotate the hours for express timezone
+    @set("hours", (@get("hours")[s..23].concat @get("hours")[0..s-1])) if s != 0
+    #If timezone shift is not full hour then hours starts with '-'
     if shift % 1 != 0 
       this.$().addClass("halfhour")
       @set("hours", ["-"].concat @get("hours") )
@@ -28,7 +28,7 @@
     @move(e)
 
   move: (e) ->
-    #Any ruler on screen will do as we want only X position and its width
+    #Any ruler on screen will do, as we want: X position, width
     ruler = $(".timeline")
 
     #Calucate where specificly ruler was clicked on
