@@ -3,13 +3,11 @@
   classNames: ['timeline']
   hours: [0..23]
   
+  controller: Sliders.TimeController
+
   didInsertElement: ->
-    @updateHours()
-  
-  updateHours: ->
-    shift = Sliders.TimeController.getHoursShift( @get("timezone") )
+    shift = @get("controller").getHoursShift( @get("timezone") )
     s = Math.ceil(shift) 
-    h = @get("hours")
     hours = h[0..23] if s == 0
     hours = h[s..23].concat h[0..s-1] if s != 0
     @set("hours", hours )    
@@ -18,17 +16,16 @@
       @set("hours", ["-"].concat @get("hours") )
   
   mouseDown: ->
-    Sliders.TimeController.startMovingRemoteTime()
+    @get("controller").startMovingRemoteTime()
 
   mouseUp: ->
-    Sliders.TimeController.stopMovingRemoteTime()
+    @get("controller").stopMovingRemoteTime()
 
   mouseMove: (e) ->
-    if( Sliders.TimeController.isMovingRemoteTime() )
-      this.move(e)
-
+    @move(e) if @get("controller").isMovingRemoteTime() 
+      
   click: (e) ->
-    this.move(e)
+    @move(e)
 
   move: (e) ->
     #Any ruler on screen will do as we want only X position and its width
@@ -37,5 +34,5 @@
     #Calucate where specificly ruler was clicked on
     position = ( e.pageX - ruler.offset().left ) / ruler.width()
     
-    Sliders.TimeController.updateRemoteTime( position )
+    @get("controller").updateRemoteTime( position )
     e.stopPropagation()
