@@ -7,7 +7,8 @@
     d = new Date()
     @set("localMinutes", d.getHours() * 60 + d.getMinutes() )
     Sliders.SlidersController.content.forEach (slider)->
-      slider.set("phase", Sliders.TimeController.get("remoteMinutes") ) 
+      phase = Sliders.TimeController.get("localMinutes") - Sliders.TimeController.get("remoteMinutes")
+      slider.set("phase", - 30 - phase ) 
       slider.updateClock()
   ).observes("localMinutes","remoteMinutes")
 
