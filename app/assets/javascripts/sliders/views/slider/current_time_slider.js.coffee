@@ -1,20 +1,19 @@
 @Sliders.CurrentTimeSliderView = Ember.View.extend
-  template: Ember.Handlebars.compile("<div>{{clock.hour}}</div><div>{{clock.minutes}}</div>")
   classNames: ['currentTimeSlider']
-  controller: Sliders.TimeController
   minutesTodayBinding: "controller.localMinutes"
+  template: Ember.Handlebars.compile("<div>{{clock.hour}}</div><div>{{clock.minutes}}</div>")
+  controller: Sliders.TimeController
   attributeBindings: ['style']
 
-  startPosition: (->
+  style: (->
     margin_left = 50
     slider_width = 19
-    margin_left - slider_width/2  
-  ).property()
-
-  style: (->
-    time = 30 + @get("minutesToday")
     panel_width = 790
     minutes_per_day = 60 * 24
-    pos = time * panel_width / minutes_per_day
-    "left: " + (@get("startPosition") + pos  ) + "px"
+    time = @get("minutesToday")
+    posistion = time * panel_width / minutes_per_day
+    start_position = margin_left - slider_width / 2  
+    from_left = start_position + posistion
+    if time then display = "block" else display = "none"
+    ["left: ", from_left, "px; display: ", display ].join("")
   ).property("minutesToday")

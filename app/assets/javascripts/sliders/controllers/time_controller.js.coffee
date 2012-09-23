@@ -5,10 +5,10 @@
 
   updateTime: (->
     d = new Date()
-    @set("localMinutes", d.getHours() * 60 + d.getMinutes() )
+    @set("localMinutes", 30 + d.getHours() * 60 + d.getMinutes() )
     Sliders.SlidersController.content.forEach (slider)->
       phase = Sliders.TimeController.get("localMinutes") - Sliders.TimeController.get("remoteMinutes")
-      slider.set("phase", - 30 - phase ) 
+      slider.set("phase", - phase ) 
       slider.updateClock()
   ).observes("localMinutes","remoteMinutes")
 
@@ -18,7 +18,7 @@
 
   getHoursShift: (remote) ->
     local = (new Date()).getTimezoneOffset() * (-60) 
-    ( remote - local ) / 3600
+    ( remote - local ) / (60 * 60)
   
   updateRemoteTime: ( position ) ->
     m = position * 60 * 24
