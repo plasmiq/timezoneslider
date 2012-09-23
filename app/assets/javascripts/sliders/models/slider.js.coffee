@@ -13,14 +13,12 @@
 	).property()
 
 	updateClock: ->
-		@set("localClock", 
-			Sliders.Clock.create( {
+		@set("localClock",
+			Sliders.Clock.create
 				timezone: @get("timezone") 
-			} ) 
 		)
 		@set("remoteClock", 
-			Sliders.Clock.create( { 
-				timezone: @get("timezone"),
+			Sliders.Clock.create
+				timezone: @get("timezone")
 				phase: @get("phase")
-			} ) 
 		)

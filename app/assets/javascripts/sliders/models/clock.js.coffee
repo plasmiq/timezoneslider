@@ -4,8 +4,8 @@
 
 	clock: (->
 		d = new Date()
-		date = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
-		new Date( date + (@get("timezone") * 1000) + (@get("phase") * 60 * 1000) )
+		utc = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
+		new Date( utc + (@get("timezone") * 1000) + (@get("phase") * 60 * 1000) )
 	).property("phase")
 
 	hour24: (->
@@ -46,6 +46,6 @@
     num = @get("clock").getDate()
     if num < 10 then "0"+num else num
   ).property("clock")
-  
+
   _timeFormat: (number)->
   	if(number < 10) then '0'+number else number
