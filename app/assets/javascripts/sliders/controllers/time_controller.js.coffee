@@ -3,13 +3,16 @@
   remoteMinutes: null
   _isMovingRemoteTime: false
 
-  calculateLocalMinutes: ->
+  updateTime: (->
     d = new Date()
     @set("localMinutes", d.getHours() * 60 + d.getMinutes() )
+    Sliders.SlidersController.content.forEach (slider)->
+      slider.set("phase", Sliders.TimeController.get("remoteMinutes") ) 
+      slider.updateClock()
+  ).observes("localMinutes","remoteMinutes")
 
   startTicking: ->
-    Sliders.TimeController.calculateLocalMinutes()
-    Sliders.SlidersController.updateSliders()
+    Sliders.TimeController.updateTime()
     setTimeout(Sliders.TimeController.startTicking,1000);
 
   getHoursShift: (shift) ->

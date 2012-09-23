@@ -5,6 +5,9 @@
 	localClock:  null
 	remoteClock: null
 
+	init: ->
+		@updateClock()
+
 	id: (->
 		return this.get("name")+this.get("timezone")
 	).property()
