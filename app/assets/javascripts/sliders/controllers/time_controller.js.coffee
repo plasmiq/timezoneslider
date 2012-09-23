@@ -15,8 +15,7 @@
     Sliders.TimeController.updateTime()
     setTimeout(Sliders.TimeController.startTicking,1000);
 
-  getHoursShift: (shift) ->
-    remote = shift
+  getHoursShift: (remote) ->
     local = (new Date()).getTimezoneOffset() * (-60) 
     ( remote - local ) / 3600
   
