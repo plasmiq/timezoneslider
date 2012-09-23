@@ -1,16 +1,15 @@
 @Sliders.TimeController = Ember.Object.create
+  localMinutes: null
   remoteMinutes: null
-
   _isMovingRemoteTime: false
 
-  localMinutes: (->
+  calculateLocalMinutes: ->
     d = new Date()
-    d.getHours() * 60 + d.getMinutes()
-  ).property()
+    @set("localMinutes", d.getHours() * 60 + d.getMinutes() )
 
   startTicking: ->
-    Sliders.SlidersController.content.forEach (slider)->
-      slider.updateClock()
+    Sliders.TimeController.calculateLocalMinutes()
+    Sliders.SlidersController.updateSliders()
     setTimeout(Sliders.TimeController.startTicking,1000);
 
   getHoursShift: (shift) ->
@@ -18,7 +17,7 @@
     local = (new Date()).getTimezoneOffset() * (-60) 
     ( remote - local ) / 3600
   
-  updateRemoteTime: ( position ) -> 
+  updateRemoteTime: ( position ) ->
     m = position * 60 * 24
     @set("remoteMinutes", m)
 

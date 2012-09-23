@@ -12,4 +12,7 @@
   
   removeSlider: (slider) ->
     @content.removeObject( slider )
-    
+
+  updateSliders: ->
+    @get("content").forEach (slider)->
+      slider.updateClock()
