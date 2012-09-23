@@ -2,17 +2,12 @@
   content: []
 
   createSlider: (name, location, timezone) ->
-    slider = Sliders.Slider.create({
-      name: name,
-      timezone: timezone,
+    @pushObject Sliders.Slider.create
+      name:     name
+      timezone: timezone
       location: location
-    });
-
-    @pushObject(slider);
   
-  removeSlider: (slider) ->
-    @content.removeObject( slider )
+  removeSlider: (slider) -> @content.removeObject slider 
 
   updateSliders: ->
-    @get("content").forEach (slider)->
-      slider.updateClock()
+    @get("content").forEach (slider) -> slider.updateClock
