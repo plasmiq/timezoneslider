@@ -5,7 +5,7 @@
 	clock: (->
 		d = new Date()
 		utc = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
-		new Date( utc + (@get("timezone") * 1000) + (@get("phase") * 60 * 1000) )
+		new Date( utc + (@get("timezone") * 1000) - (@get("phase") * 60 * 1000) )
 	).property("phase")
 
 	hour24: (->

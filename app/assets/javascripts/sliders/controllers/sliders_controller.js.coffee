@@ -9,5 +9,5 @@
   
   removeSlider: (slider) -> @content.removeObject slider 
 
-  updateSliders: ->
-    @get("content").forEach (slider) -> slider.updateClock
+  updateSliders: (phase) ->
+  	@get("content").forEach (slider) -> slider.updateClock(phase)

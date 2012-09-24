@@ -6,10 +6,7 @@
   updateTime: (->
     d = new Date()
     @set("localMinutes", 30 + d.getHours() * 60 + d.getMinutes() )
-    Sliders.SlidersController.content.forEach (slider)->
-      phase = Sliders.TimeController.get("localMinutes") - Sliders.TimeController.get("remoteMinutes")
-      slider.set("phase", - phase ) 
-      slider.updateClock()
+    Sliders.SlidersController.updateSliders(@get("localMinutes") - @get("remoteMinutes") )
   ).observes("localMinutes","remoteMinutes")
 
   startTicking: ->
