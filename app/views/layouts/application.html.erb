@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic' rel='stylesheet' type='text/css'>
+  <!--[if !IE 7]>
+  <style type="text/css">
+    #wrap {display:table;height:100%}
+  </style>
+  <![endif]-->
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <script type="text/javascript">
@@ -23,34 +28,35 @@
   </script>
 </head>
 <body>
-  <menu>
-    <div class="content">
-      <h1>
-        <a href="/"><span>timezoneslider</span></a>
-      </h1>
-      <div class="header_legend"></div>
+  <div id="wrap">
+    <menu>
+      <div class="content">
+        <h1>
+          <a href="/"><span>timezoneslider</span></a>
+        </h1>
+        <div class="header_legend"></div>
+      </div>
+    </menu>
+    <div class="core">
+      <%= yield %>
     </div>
-  </menu>
-  <div class="core">
-    <%= yield %>
   </div>
   <footer>
-    <div class="content">
-      <div id="footer">
-        <div id="copyrights">
-          &copy; 2012 TimeZoneSlider 
-        </div>
-        <div id="paypal">
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="PFAMV5YUXL7Z8">
-            <button type="submit" name="submit"> 
-              <span>Like this app? Donate via Paypal</span>
-            </buton>
-          </form>
-        </div>
-        <a id="plasmiq" href="http://plasmiq.com/" target="_blank"></a>
-      </div>
+    <div class="conteiner">
+      <a id="plasmiq" href="http://plasmiq.com/" target="_blank">&nbsp;</a>
+      <span id="copyrights">
+        &copy; 2012 TimeZoneSlider 
+      </span>
+      <span id="paypal">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="PFAMV5YUXL7Z8">
+          <button type="submit" name="submit"> 
+            <span>Like this app? Donate via Paypal</span>
+          </buton>
+        </form>
+      </span>
+      
     </div>
     <div id="footerBg">
     </div>

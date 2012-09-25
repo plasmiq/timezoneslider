@@ -1,3 +1,5 @@
+* {margin:0;padding:0;} 
+html, body {height: 100%;}
 body {
   margin: 0px;
   padding: 0px;
@@ -7,6 +9,10 @@ body {
 
 a {
   outline: 0;
+}
+
+#wrap {
+  min-height: 100%;
 }
 
 menu {
@@ -39,78 +45,73 @@ menu {
 }
 
 .core {
-  margin: 0 auto 150px;
+  margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 footer {
-  position: fixed;
-  bottom: 0px;
+  margin-top: -75px;
   height: 75px;
-  width: 100%;
-  z-index: 1000;
+  position: relative;
+  
   #footerBg {
     background-color: #1b1b1b;
     -moz-opacity: 0.07;
     opacity: 0.07;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=7)";
-    position: absolute;
     height: 100%;
     width: 100%;
     z-index: -1; 
-    top: 0px;
   }
-  .content {
+
+  .conteiner {
     position: relative;
-    height: 100%;
+    top: 32px;
     width: 860px;
-    top: 0px;
     z-index: 1002;
-  }
-}
+    margin: 0 auto;
 
-
-#footer {
-  margin-top: 30px;
-  font-family: arial;
-  font-size: 12px; 
-  color: #909090;
-  
-  a:hover, button:hover {
-    text-decoration: underline;
-    color: #515151 !important;
-  }
-
-  #copyrights {
-    float: left;
-  }
-  
-  #paypal {
-    float: left;
-    margin-left: 40px;
-    position: relative;
-    top: -1px;
+    font-family: arial;
+    font-size: 12px; 
+    color: #909090;
     
-    button {
-      background: none;
-      border: 0px;
-      font-family: arial;
-      font-size: 12px; 
-      color: #909090;
-      cursor: pointer;
-      :hover {
-        color: #515151;
+    a:hover, button:hover {
+      text-decoration: underline;
+      color: #515151 !important;
+    }
+
+    #copyrights {
+      float: left;
+    }
+    
+    #paypal {
+      float: left;
+      margin-left: 40px;
+      position: relative;
+      top: -1px;
+      
+      button {
+        background: none;
+        border: 0px;
+        font-family: arial;
+        font-size: 12px; 
+        color: #909090;
+        cursor: pointer;
+        :hover {
+          color: #515151;
+        }
       }
     }
-  }
-  
-  #plasmiq {
-    float: right;
-    position: relative;
-    top: -15px;
-    display: block;
-    background: url("powered_by_plasmiq.png");
-    width: 151px;
-    height: 39px;
+
+    #plasmiq {
+      float: right;
+      position: relative;
+      top: -15px;
+      display: block;
+      background: url("powered_by_plasmiq.png");
+      width: 151px;
+      height: 39px;
+    }
   }
 }
 
