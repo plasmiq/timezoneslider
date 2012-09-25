@@ -4,7 +4,7 @@
   <title>Timezoneslider</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <script type="text/javascript">
@@ -38,18 +38,21 @@
     <div class="content">
       <div id="footer">
         <div id="copyrights">
-          &copy; 2011 TimeZoneSlider 
+          &copy; 2012 TimeZoneSlider 
         </div>
         <div id="paypal">
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="PFAMV5YUXL7Z8">
-            <input type="image" src="http://dl.dropbox.com/u/6408003/timezoneslider/donate_paypal.png" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+            <button type="submit" name="submit"> 
+              <span>Like this app? Donate via Paypal</span>
+            </buton>
           </form>
         </div>
         <a id="plasmiq" href="http://plasmiq.com/" target="_blank"></a>
       </div>
+    </div>
+    <div id="footerBg">
     </div>
   </footer>
 </body>

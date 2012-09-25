@@ -44,8 +44,16 @@
     padding: 2px 5px;
     margin: 10px  0 0 10px;
     font-family: 'Open Sans';
-    font-style: italic;
     font-size: 12px;
+    font-weight: 600;
     color: #000000;
+  }
+  .new_slider_input.city_autocomplete {
+    background-position: 0 -24px;
+    width: 180px;
+    padding-right: 26px;
+  }
+  .new_slider_input:-moz-placeholder {
+    color: #707070;
   }
 }
