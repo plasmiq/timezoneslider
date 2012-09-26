@@ -6,5 +6,5 @@
   itemViewClass: Sliders.SliderView
 
   emptyView: Ember.View.extend
-    template: Ember.Handlebars.compile "Empty..."
+    template: Ember.Handlebars.compile ""
   

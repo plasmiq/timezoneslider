@@ -13,6 +13,9 @@
       float: left;
       margin: 10px 0 0 50px;
       position: relative;
+      button {
+        cursor: pointer;
+      }
       input, button {
         position: absolute;
         width: 13px;
