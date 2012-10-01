@@ -30,6 +30,7 @@
     .currentTimeNotifier {
       margin: 10px 50px 0 0;
       float: right;
+      text-transform: capitalize;
       .time {
         margin-left: 10px;
         font-size: 16px;
@@ -44,12 +45,14 @@
         }
         .ampm {
           font-size: 12px;
+          text-transform: uppercase;
         }
       }
       .date {
         margin-left: 10px;
         font-size: 12px;
         color: #615144;
+        text-transform: uppercase;
       }
     }
     .currentTimeNotifier.remote {
