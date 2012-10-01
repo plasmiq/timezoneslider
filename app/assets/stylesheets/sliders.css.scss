@@ -18,7 +18,8 @@
     margin-right: 50px;
   }
   #new_slider_button {
-    background: url("header_utility_add_button.png") no-repeat;
+    background: url("header_utility_add_button.gif") no-repeat;
+    background-position: -23px 0;
     height: 23px;
     width: 23px;
     border: 0px;
@@ -27,8 +28,11 @@
     float: right;
     display: block;
     &:hover {
-      background-position: -23px 0;
+      background-position: -46px 0;
     }
+  }
+  #new_slider_button.working {
+    background-position: -0px 0;
   }
  
   .new_slider_input::-webkit-input-placeholder  { color: #707070; }

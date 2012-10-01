@@ -5,6 +5,12 @@
     options = {}
     for opt in ['source','select','focus']
       options[opt] = @get(opt)
+      
+    options.search = -> 
+      $("#new_slider_button").addClass('working')
+    options.open = -> 
+      $("#new_slider_button").removeClass('working')
+
     ui = new jQuery.ui["autocomplete"](options, this.get('element'))
     this.set("ui", ui)
    
