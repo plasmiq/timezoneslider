@@ -7,8 +7,9 @@ body {
   height: 100%;
 }
 
-a {
+a, a:visited, a:hover {
   outline: 0;
+  text-decoration: none;
 }
 
 #wrap {
@@ -125,6 +126,10 @@ footer {
       background: url("powered_by_plasmiq.png");
       width: 151px;
       height: 39px;
+      text-decoration: none;
+      &:hover, &:visited {
+        text-decoration: none;
+      }
     }
   }
 }
