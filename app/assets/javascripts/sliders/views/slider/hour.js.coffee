@@ -1,5 +1,5 @@
 @Sliders.HourView = Ember.View.extend
-  template: Ember.Handlebars.compile("<tr><td>{{content}}</td></tr>")
+  template: Ember.Handlebars.compile("<tr><td>{{view.content}}</td></tr>")
   
   tagName: "table"
   

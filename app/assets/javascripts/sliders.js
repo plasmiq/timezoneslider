@@ -7,9 +7,14 @@
 //= require_self
 //Sliders.initialize();
 
-
 $(function() {
-  var current_timezone = (new Date()).getTimezoneOffset() * (-60)
+  if( Sliders.SlidersController.get("content").length == 0 ) {
+  	var current_timezone = (new Date()).getTimezoneOffset() * (-60)
+  	Sliders.SlidersController.createSlider("ME","current location",current_timezone);
+  };
+
+  // Make them tick on same time #need a fix
+  Sliders.SlidersController.updateSliders(0);
+
   Sliders.TimeController.startTicking();
-  Sliders.SlidersController.createSlider("ME","current location",current_timezone);
 })

@@ -1,16 +1,9 @@
-@Sliders.Slider = Ember.Object.extend
-	name: null
-	location: null
-	timezone: null
+@Sliders.Slider = DS.Model.extend
+	name: DS.attr('string')
+	location: DS.attr('string')
+	timezone: DS.attr('string')
 	localClock:  null
 	remoteClock: null
-
-	init: ->
-		@updateClock()
-
-	id: (->
-		return this.get("name")+this.get("timezone")
-	).property()
 
 	updateClock: (phase)->
 		@set("localClock",
