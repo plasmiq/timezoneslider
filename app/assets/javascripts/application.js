@@ -7,4 +7,8 @@
 //= require jquery
 //= require jquery-ui
 //= require ember
+//= require ember-data
+//= require_self
+//= require sliders
+Sliders = Ember.Application.create();
 //= require_tree .
