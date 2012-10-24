@@ -1,17 +1,20 @@
 .slider {
   width: 890px;
-  margin: 20px auto;
+  height: 100px;
+  margin: 15px auto 0 auto;
   position: relative;
+  overflow: hidden;
   .topBar {
     height: 40px;
     font-family: 'Open Sans', sans-serif;
+    text-shadow: 1px 1px 0 #ffffff;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 14px;
     color: black;
     .name {
       float: left;
-      margin: 10px 0 0 50px;
+      margin: 10px 0 0 61px;
       position: relative;
       button {
         cursor: pointer;
@@ -28,7 +31,7 @@
       }
     }
     .currentTimeNotifier {
-      margin: 10px 50px 0 0;
+      margin: 10px 61px 0 0;
       float: right;
       text-transform: uppercase;
       .time {
@@ -97,57 +100,79 @@
     }
     
     .timeline {
-      position: absolute;
-      top: 10px;
-      left: 50px;
-      width: 790px;
-      height: 25px;
+      margin: 0 auto;
+      width: 768px;
       &.halfhour {
         .hours {
           position: relative;
-          left: -18px;  
+          left: -16px;
+          width: 768px + 32px; /* + 32px of additional hour "-" */
         }
-        .ruler {
-          background-position: 50px 0px !important;
+        .ruler { 
+          background-position: -16px 10px !important;
         }
       }
       .frame {
-        overflow: hidden;
-        height: inherit;
-        width: inherit;
         .ruler {
-          height: inherit;
-          width: inherit;
-          background: url("panel_ruler.png") 0px 0 repeat-x;  
-          background-position: -33px 0px;
+          height: 25px;
+          padding-top: 10px;
+          background: url("panel_ruler_768.png") transparent 0px 10px repeat-x;
           cursor: pointer;
+        }
+        .availability {
+          display: none;
+          position: absolute;
+          top: 0px;
+          height: 25px;
+          width: 825px;
+
+          .hour {
+            float: left;
+            z-index: 20;
+            .left, .right{ 
+              float: left;
+              height: 25px;
+            }
+            .left {
+              width: 16px;
+              border-right: 1px solid white;  
+            }
+            .right {
+              width: 16px;
+            }
+          }
+          .ok {
+            & .left, & .right {
+              background: url("slider_green.png") repeat-x;
+            }
+            & .left {
+              border-right: 1px solid white;  
+            }
+          }
         }
       }
       .hours {
-        width: 825px;
-        margin-top: 5px;
+        z-index: 10;
         cursor: pointer;
-
         table {
           float: left;
           font-size: 12px;
           font-family: Arial;
           font-weight: bold;
-          width: 21px;
+          width: 20px;
           text-align: center;
           position: relative;
-          top: -30px;
+          top: -25px;
           height: 52px;
           margin: 0 6px;
           td {
             padding-bottom: 3px;
             vertical-align: bottom;
           }
-
           td.midnight {
             background-color: black;
             color: white;
-
+            z-index: 1;
           }
         }
       }

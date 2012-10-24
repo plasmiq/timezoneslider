@@ -6,9 +6,9 @@
   attributeBindings: ['style']
 
   style: (->
-    margin_left = 50
+    margin_left = 61
     slider_width = 19
-    panel_width = 790
+    panel_width = 768
     minutes_per_day = 60 * 24
     time = @get("minutesToday")
     posistion = time * panel_width / minutes_per_day

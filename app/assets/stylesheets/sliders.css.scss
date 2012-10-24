@@ -34,9 +34,6 @@
   #new_slider_button.working {
     background-position: -0px 0;
   }
- 
-  .new_slider_input::-webkit-input-placeholder  { color: #707070; }
-  .new_slider_input:-moz-placeholder { color: #707070; }
   
   .new_slider_input {
     float: right;
@@ -59,5 +56,17 @@
   }
   .new_slider_input:-moz-placeholder {
     color: #707070;
+    text-shadow: 0px 1px 0 #ffffff;
   }
+  .new_slider_input::-webkit-input-placeholder  { 
+    color: #707070;
+    text-shadow: 0px 1px 0 #ffffff;
+  }
+  .new_slider_input:-moz-placeholder { 
+    color: #707070;
+    text-shadow: 0px 1px 0 #ffffff;
+  }
+}
+.sliders {
+  margin-bottom: 40px;
 }
