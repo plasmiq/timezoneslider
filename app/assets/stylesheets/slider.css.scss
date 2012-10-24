@@ -4,6 +4,25 @@
   margin: 15px auto 0 auto;
   position: relative;
   overflow: hidden;
+
+  &.color1 {
+    .ok .left, .ok .right{ 
+      background-image: url("slider_blue.png") !important;
+    }
+  }
+
+  &.color2 {
+    .ok .left, .ok .right{ 
+      background-image: url("slider_orange.png") !important;
+    }
+  }
+
+  &.color3 {
+    .ok .left, .ok .right{ 
+      background-image: url("slider_pink.png") !important;
+    }
+  }
+
   .topBar {
     height: 40px;
     font-family: 'Open Sans', sans-serif;
@@ -119,35 +138,37 @@
           background: url("panel_ruler_768.png") transparent 0px 10px repeat-x;
           cursor: pointer;
         }
-        .availability {
-          display: none;
-          position: absolute;
-          top: 0px;
-          height: 25px;
-          width: 825px;
-
-          .hour {
+      }
+      .availability {
+        display: block;
+        position: absolute;
+        top: 10px;
+        height: 25px;
+        width: 800px;
+        left: 61px;
+        .hour {
+          float: left;
+          z-index: 20;
+          .left, .right{ 
             float: left;
-            z-index: 20;
-            .left, .right{ 
-              float: left;
-              height: 25px;
-            }
-            .left {
-              width: 16px;
-              border-right: 1px solid white;  
-            }
-            .right {
-              width: 16px;
-            }
+            height: 25px;
+            
           }
-          .ok {
-            & .left, & .right {
-              background: url("slider_green.png") repeat-x;
-            }
-            & .left {
-              border-right: 1px solid white;  
-            }
+          .left {
+            padding-left: 1px;
+            width: 15px;
+            border-right: 1px solid transparent;  
+          }
+          .right {
+            width: 15px;
+          }
+        }
+        .ok {
+          & .left, & .right {
+            background: url("slider_green.png") repeat-x;
+          }
+          & .left {
+            border-right: 1px solid white;  
           }
         }
       }
