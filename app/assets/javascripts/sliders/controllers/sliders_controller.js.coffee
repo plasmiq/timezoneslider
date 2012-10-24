@@ -17,7 +17,7 @@
   	store = Sliders.Store
   	store.deleteRecord( slider )
   	store.commit();
-  	@popObject(slider)
+  	@removeObject(slider)
 
   updateSliders: (phase) ->
   	@get("content").forEach (slider) -> 

@@ -5,7 +5,7 @@
 
   color: (-> 
   	"color"+ ( @get("contentIndex") % 4 )
-  ).property("contentIndex")
+  ).property()
 
   remove: (evt) ->
     Sliders.SlidersController.removeSlider( this.get("content") );
