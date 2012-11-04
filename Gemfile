@@ -24,7 +24,7 @@ gem 'inherited_resources'
 gem 'passenger'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'rvm-capistrano'
 
 group :test do
   # Pretty printed test output
