@@ -1,12 +1,18 @@
 class Timezone  
   def Timezone.search term
     ret = []
-    TZInfo::Timezone.all.map do |tz|
-      ret << { 
-      	label: tz.friendly_identifier(true), 
-      	value: tz.current_period.utc_total_offset
-      } if tz.name.downcase.include? term.downcase
+    Timezoneslider::Geonames.each do |location|
+      if location[0].downcase.include? term.downcase
+        tz = TZInfo::Timezone.get( location[1] ) 
+        elem = { 
+      	  label: location[0], 
+	  timezone: location[1],
+      	  value: tz.current_period.utc_total_offset
+        } 
+        ret << elem
+      end
     end
-    ret
+    # limit results to 8
+    ret[0..7]
   end
 end

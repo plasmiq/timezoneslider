@@ -27,6 +27,7 @@
     margin: 10px 0px 0px 10px;
     float: right;
     display: block;
+    cursor: pointer;
     &:hover {
       background-position: -46px 0;
     }
@@ -69,4 +70,31 @@
 }
 .sliders {
   margin-bottom: 40px;
+}
+
+.ui-autocomplete .ui-menu-item {
+  a {
+    line-height: 1.1em;
+    cursor: pointer;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  span {
+    font-size: 0.7em;
+    color: gray;
+
+    strong {
+      display: inline-block;
+      float: right;
+      width: 55px;
+      text-align: left;
+      margin-top: 2px;
+      font-weight: normal;
+    }
+  }
+
 }
