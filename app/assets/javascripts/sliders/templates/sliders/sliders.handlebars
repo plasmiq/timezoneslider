@@ -1,3 +1,6 @@
-{{#each Sliders.SlidersController}}
+{{#each controller.content}}
 	{{view Sliders.SliderView contentBinding="this"}}
 {{/each}}
+{{#if Sliders.TimeController.isRemote}}
+	{{view Sliders.SyncButtonView}}
+{{/if}}

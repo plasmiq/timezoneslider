@@ -25,10 +25,14 @@
   	@set("remoteMinutes", null)
     
   startMovingRemoteTime: ->
-    this.set("_isMovingRemoteTime",true)
+    @set("_isMovingRemoteTime",true)
   
   stopMovingRemoteTime: ->
-    this.set("_isMovingRemoteTime",false)
+    @set("_isMovingRemoteTime",false)
 
   isMovingRemoteTime: ->
-    return this.get("_isMovingRemoteTime")
+    @get("_isMovingRemoteTime")
+
+  isRemote: (->
+    @get("remoteMinutes") > 0
+  ).property("remoteMinutes")

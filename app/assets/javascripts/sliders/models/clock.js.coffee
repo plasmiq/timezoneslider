@@ -41,6 +41,10 @@
     ]
     myMonths[ @get("clock").getMonth() ]
   ).property("clock")
+
+  year: (->
+  	@get("clock").getFullYear()
+  ).property()
   
   dayNumber: (-> 
     num = @get("clock").getDate()
@@ -49,3 +53,21 @@
 
   _timeFormat: (number)->
   	if(number < 10) then '0'+number else number
+
+  formattedTime: (->
+  	#spec: 10:25PM / SAT NOV 03 2012
+  	[
+  		@get("hour"),
+  		":",
+  		@get("minutes"),
+  		@get("ampm"),
+  		" / ",
+  		@get("dayName"),
+  		" ",
+  		@get("month"),
+  		" ",
+  		@get("dayNumber"),
+  		" ",
+  		@get("year")
+  	].join("")	
+  ).property("clock").cacheable()

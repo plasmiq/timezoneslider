@@ -1,7 +1,10 @@
 @Sliders.CurrentTimeNotifierView = Ember.View.extend
   templateName: "sliders/templates/slider/current_time_notifier"
   classNames: ['currentTimeNotifier']
+  
   classNameBindings: ['remote']
+
+  remoteBinding: "controller.isRemote"
   
   controller: Sliders.TimeController
 
@@ -10,8 +13,4 @@
       @get("remoteClock")
     else
       @get("localClock")
-  ).property("remoteClock")
-
-  remote: (->
-    @get("controller").get("remoteMinutes") > 0
   ).property("remoteClock")

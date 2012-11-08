@@ -98,3 +98,14 @@
   }
 
 }
+.sync_button {
+  display: block;
+  width: 220px;
+  height: 28px;
+  cursor: pointer;
+  background-image: url(send_sync_time_button.png);
+  margin: 60px auto 0;
+  &:hover {
+    background-position: -220px 0;
+  }
+}
