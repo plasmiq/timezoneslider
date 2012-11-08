@@ -1,10 +1,4 @@
-@Sliders.SlidersView = Ember.CollectionView.extend
-  classNames: ['sliders']
-   
-  contentBinding: "Sliders.SlidersController.content" 
+@Sliders.SlidersView = Ember.View.extend
+	classNames: ['sliders']
 
-  itemViewClass: Sliders.SliderView
-
-  emptyView: Ember.View.extend
-    template: Ember.Handlebars.compile ""
-  
+	templateName: 'sliders/templates/sliders/sliders'

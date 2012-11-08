@@ -4,7 +4,7 @@
   classNames: ["slider"]
 
   color: (-> 
-  	"color"+ ( @get("contentIndex") % 4 )
+  	"color"+ ( @get("_parentView.contentIndex") % 4 )
   ).property()
 
   remove: (evt) ->
