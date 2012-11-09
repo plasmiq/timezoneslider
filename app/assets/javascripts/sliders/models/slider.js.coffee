@@ -14,4 +14,5 @@
 			Sliders.Clock.create
 				timezone: @get("timezone")
 				phase: phase
+				round: 5
 		)

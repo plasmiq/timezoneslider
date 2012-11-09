@@ -3,9 +3,15 @@
 	phase:  0
 
 	clock: (->
-		d = new Date()
-		utc = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
-		new Date( utc + (@get("timezone") * 1000) - (@get("phase") * 60 * 1000) )
+    time = @get("utc") + (@get("timezone") * 1000) - (@get("phase") * 60 * 1000)
+    date = new Date( time )
+    
+    #round
+    if mod = @get("round")
+      m = date.getMinutes() 
+      date.setMinutes(m - m % mod) 
+
+    date
 	).property("phase")
 
 	hour24: (->
@@ -71,3 +77,8 @@
   		@get("year")
   	].join("")	
   ).property("clock").cacheable()
+
+  utc: (-> 
+    d = new Date()
+    d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
+  ).property()
