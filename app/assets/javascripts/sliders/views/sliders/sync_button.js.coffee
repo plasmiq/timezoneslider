@@ -6,13 +6,18 @@
 
 	slidersBinding:  "Sliders.SlidersController"
 
-	attributeBindings: ["href"]
+	attributeBindings: ["href", "target"]
+
+	target: "_blank"
+
+	controller: Sliders.TimeController
 
 	href: (->
+		console.log @get("controller.remoteMinutes")
 		"mailto:" + 
 			"?subject=" + @get("subject") +
 			"&body=" + @get("body")
-	).property("sliders")
+	).property("controller.remoteMinutes","sliders")
 
 	subject: (->
 		"Sync times - Timezoneslider"
@@ -46,4 +51,4 @@
 			"-- "+new_line,
 			"Time sync with your friends around the world at http://timezoneslider.com"
 		].join(new_line)
-	).property()
+	).property("controller.remoteMinutes")
