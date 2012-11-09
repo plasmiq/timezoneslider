@@ -17,7 +17,7 @@
 		"mailto:" + 
 			"?subject=" + @get("subject") +
 			"&body=" + @get("body")
-	).property("controller.remoteMinutes","sliders")
+	).property("sliders.@each.remoteClock")
 
 	subject: (->
 		"Sync times - Timezoneslider"
@@ -51,4 +51,4 @@
 			"-- "+new_line,
 			"Time sync with your friends around the world at http://timezoneslider.com"
 		].join(new_line)
-	).property("controller.remoteMinutes")
+	).property("sliders.@each.remoteClock")
