@@ -20,7 +20,6 @@
   updateRemoteTime: ( position ) ->
     m = position * 60 * 24
     @set("remoteMinutes", m)
-    @updateTime()
 
   clearRemoteTime: ->
   	@set("remoteMinutes", null)
