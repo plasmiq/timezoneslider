@@ -15,33 +15,35 @@
 	).property("sliders")
 
 	subject: (->
-		"Let's sync when the time is right"
+		"Sync times - Timezoneslider"
 	).property()
 
 	body: (-> 
 		new_line = "%0D%0A"
 		space = " "
 		tab = "	"
-		hr = "#################################"
+		hr = "-------------------------------------"
 
 		text = [
 			"Hi there!" + new_line,
 			"Let me know if this time works for us to sync up:",
-			new_line+new_line,
+			new_line,
 		].join(new_line)
 
 		@get("sliders").forEach (slider) ->
 			text += [
-				hr + new_line,
-				slider.get("name") + " : " + slider.get("location"),
-				"SYNC TIME : " + slider.get("remoteClock").get("formattedTime")
-				new_line
+				hr,
+				slider.get("name").toUpperCase() + ":",
+				slider.get("location").toUpperCase(),
+				hr,
+				"SYNC TIME:",
+				slider.get("remoteClock").get("formattedTime"),
+				hr + new_line
 			].join(new_line)
 
 		text += [
-			hr,
 			new_line,
-			"-- ",
-			"time syncing with your friends, visit timezoneslider.com"
+			"-- "+new_line,
+			"Time sync with your friends around the world at http://timezoneslider.com"
 		].join(new_line)
 	).property()
