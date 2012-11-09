@@ -13,7 +13,6 @@
 	controller: Sliders.TimeController
 
 	href: (->
-		console.log @get("controller.remoteMinutes")
 		"mailto:" + 
 			"?subject=" + @get("subject") +
 			"&body=" + @get("body")
