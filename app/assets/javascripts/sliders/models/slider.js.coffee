@@ -2,6 +2,7 @@
 	name: DS.attr('string')
 	location: DS.attr('string')
 	timezone: DS.attr('string')
+	position: DS.attr('number')
 	localClock:  null
 	remoteClock: null
 

@@ -1,5 +1,6 @@
 @Sliders.SlidersController = Ember.ArrayController.create
-  content: Sliders.Store.findAll(Sliders.Slider).toArray()
+  content: Sliders.Store.findAll(Sliders.Slider).toArray().sort (a,b) ->
+    (a.get("position") || 100 ) > ( b.get("position") || 100 )
 
   createSlider: (name, location, timezone) ->
     store = Sliders.Store
@@ -22,3 +23,8 @@
   updateSliders: (phase) ->
   	@get("content").forEach (slider) -> 
   		slider.updateClock(phase)
+
+  updateOrder: (newOrder) ->
+    for num in [0..newOrder.length - 1]
+      Sliders.Slider.find(newOrder[num]).set "position", num+1
+    Sliders.Store.commit()

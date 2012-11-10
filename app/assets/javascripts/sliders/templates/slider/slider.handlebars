@@ -1,8 +1,9 @@
 <div class="topBar">
-  <div class="name">
+  <div class="name" {{bindAttr data-id="view.content.id"}}>
     {{#view Ember.Button target="view" action="remove"}}{{/view}}{{view.content.name}}
   </div>
   {{view Sliders.CurrentTimeNotifierView locationBinding="view.content.location" localClockBinding="view.content.localClock" remoteClockBinding="view.content.remoteClock"}}
+  <div class="handle"></div>
 </div>
 <div class="bottomBar">
   {{view Sliders.CurrentTimeSliderView clockBinding="view.content.localClock"}}

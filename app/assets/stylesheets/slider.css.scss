@@ -31,6 +31,16 @@
     font-weight: bold;
     font-size: 14px;
     color: black;
+    position: relative;
+    .handle {
+      width: 23px;
+      height: 14px;
+      background: url(reorder_grippers.png);
+      cursor: move;
+      position: absolute;
+      right: 20px;
+      top: 17px;
+    }
     .name {
       float: left;
       margin: 10px 0 0 61px;
