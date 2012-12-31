@@ -13,7 +13,7 @@
   mouseMove: ->
     @set("moved",true)
 
-  click: ->
+  doubleClick: ->
     #remove only if clicked, not while after moving
     if( ! @get("moved") )
       @set("moved",false)
