@@ -1,9 +1,12 @@
 @Sliders.CurrentTimeSliderView = Ember.View.extend
   classNames: ['currentTimeSlider']
   minutesTodayBinding: "controller.localMinutes"
-  template: Ember.Handlebars.compile("<div>{{view.clock.hour}}</div><div>{{view.clock.minutes}}</div>")
+  template: Ember.Handlebars.compile("<div>{{#if isMode12}}{{view.clock.hour}}{{else}}{{view.clock.hour24}}{{/if}}</div><div>{{view.clock.minutes}}</div>")
   controller: Sliders.TimeController
   attributeBindings: ['style']
+
+  click: ->
+    @get("controller").changeMode()
 
   style: (->
     margin_left = 50

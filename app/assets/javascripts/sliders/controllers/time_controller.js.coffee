@@ -1,7 +1,18 @@
 @Sliders.TimeController = Ember.Object.create
+  mode: "12"
   localMinutes: null
   remoteMinutes: null
   _isMovingRemoteTime: false
+
+  isMode12: (->
+    @get("mode") == "12"
+  ).property("mode")
+
+  changeMode: ->
+    mode = "12"
+    if @get("mode") == "12"
+      mode = "24"
+    @set("mode", mode) 
 
   updateTime: (->
     d = new Date()

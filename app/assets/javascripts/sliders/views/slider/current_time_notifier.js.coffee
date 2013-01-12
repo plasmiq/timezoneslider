@@ -14,3 +14,6 @@
     else
       @get("localClock")
   ).property("remoteClock")
+
+  click: ->
+    @get("controller").changeMode()
