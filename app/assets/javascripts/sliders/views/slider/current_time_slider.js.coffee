@@ -6,7 +6,7 @@
   attributeBindings: ['style']
 
   style: (->
-    margin_left = 61
+    margin_left = 50
     slider_width = 19
     panel_width = 768
     minutes_per_day = 60 * 24

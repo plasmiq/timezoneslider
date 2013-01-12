@@ -10,6 +10,7 @@
 		that = this
 		$("#sliders_list").sortable
 			handle: ".handle"
+			axis: "y"
 			opacity : 0.6
 			update: (event, ui) ->
 	            newOrder = $("#sliders_list").sortable('toArray').filter (elem) ->
