@@ -8,4 +8,5 @@
   ).property()
 
   remove: (evt) ->
-    Sliders.SlidersController.removeSlider( this.get("content") );
+  	that = this.$().hide() #workaraound in case you hade reordered sliders list
+  	Sliders.SlidersController.removeSlider( this.get("content") );
