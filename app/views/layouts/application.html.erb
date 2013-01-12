@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8"/>
   <title>Timezoneslider.com - free time syncing app for you and your friends</title>
   <meta name="description" content="Timezoneslider is a free time syncing web app to coordinate and visualise with your friends each other's availability." />
   <meta name="keywords" content="timezones, time, world clocks, world clock, world time, world timezones, time-zones, time management, timezone utility, timezone tool, time software, time apps, time webapp, productivity, gtd, getting shit done, getting things done, gsd, sync, time sync, web tool, web utility, collaboration tool, time visualisation, collaboration, collaboration utility, utility, saas, freeware, free apps, web app, free web app" />
@@ -15,6 +16,8 @@
   <![endif]-->
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
+
+  <!-- User Voice -->
   <script type="text/javascript">
     var uvOptions = {};
     (function() {
@@ -24,6 +27,53 @@
     })();
   </script>
 
+  <!-- Fancy Box -->
+  <!-- Add fancyBox -->
+  <link rel="stylesheet" href="http://plasmiq.com/fancybox/source/jquery.fancybox.css?v=2.1.2" type="text/css" media="screen" />
+  <script type="text/javascript" src="http://plasmiq.com/fancybox/source/jquery.fancybox.pack.js?v=2.1.2"></script>
+  <style>
+      .fancybox-overlay a {
+        color: blue;
+        text-decoration: none;
+      }
+
+      .fancybox-overlay a:hover {
+        text-decoration: underline;
+      }
+
+      .fancybox-title {
+        text-align: center;
+      }
+      
+      #about {
+        font-size: 15px;
+        font-family: Arial;
+        width: 390px;
+      }
+      
+      #about a {
+        color: #095fc8;
+      }
+      
+      #about p {
+        margin: 15px 0;
+      }
+      
+      #about h1 {
+        font-size: 30px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+      }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      
+      $(".about").fancybox();
+
+    });
+  </script>
+
+  <!-- Google Analytics -->
   <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -57,14 +107,17 @@
     <div class="conteiner">
       <a id="plasmiq" href="http://plasmiq.com/" target="_blank"></a>
       <span id="copyrights">
-        &copy; 2012 TimeZoneSlider 
+        2012-2013 &copy; TimeZoneSlider 
       </span>
+      <a class="about fancybox.ajax" href="about.html"> 
+        About
+      </a>
       <span id="paypal">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
           <input type="hidden" name="cmd" value="_s-xclick">
           <input type="hidden" name="hosted_button_id" value="MCU5P6J4N5CB4">
           <button type="submit" name="submit"> 
-            <span>Donate via Paypal</span>
+            <span>Donate</span>
           </button>
         </form>
       </span>

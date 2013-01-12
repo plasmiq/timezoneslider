@@ -75,6 +75,10 @@ footer {
     font-family: arial;
     font-size: 12px; 
     color: #909090;
+
+    a:visited {
+      color: #909090;
+    }
     
     a:hover, button:hover {
       text-decoration: underline;
@@ -83,6 +87,11 @@ footer {
 
     #copyrights {
       float: left;
+    }
+
+    .about {
+      float: left;
+      margin-left: 40px;
     }
 
     #twitter {
