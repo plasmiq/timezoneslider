@@ -9,10 +9,7 @@
   ).property("mode")
 
   changeMode: ->
-    mode = "12"
-    if @get("mode") == "12"
-      mode = "24"
-    @set("mode", mode) 
+    @set "mode", if @get "isMode12" then "24" else "12"
 
   updateTime: (->
     d = new Date()
