@@ -1,12 +1,23 @@
 @Sliders.TimeController = Ember.Object.create
   mode: "12"
+  days_shift: 0
   localMinutes: null
   remoteMinutes: null
   _isMovingRemoteTime: false
 
+  isDaysShift: (->
+    @get("days_shift") != 0
+  ).property("days_shift")
+
   isMode12: (->
     @get("mode") == "12"
   ).property("mode")
+
+  nextDay: ->
+    @set "days_shift", @get("days_shift") + 1
+
+  prevDay: ->
+    @set "days_shift", @get("days_shift") - 1
 
   changeMode: ->
     @set "mode", if @get "isMode12" then "24" else "12"
@@ -14,8 +25,9 @@
   updateTime: (->
     d = new Date()
     @set("localMinutes", 30 + d.getHours() * 60 + d.getMinutes() )
-    Sliders.SlidersController.updateSliders(@get("localMinutes") - @get("remoteMinutes") )
-  ).observes("localMinutes","remoteMinutes")
+    time_shift = @get("localMinutes") - @get("remoteMinutes")
+    Sliders.SlidersController.updateSliders( time_shift, @get("days_shift") )
+  ).observes("localMinutes","remoteMinutes","days_shift")
 
   startTicking: ->
     Sliders.TimeController.updateTime()

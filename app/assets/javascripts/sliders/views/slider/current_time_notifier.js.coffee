@@ -8,6 +8,10 @@
   
   controller: Sliders.TimeController
 
+  isHidden: (->
+    @get("controller.isDaysShift") && ! @get("remote")
+  ).property("remote","controller.isDaysShift")
+
   clock: (->
     if @get("remote")
       @get("remoteClock")

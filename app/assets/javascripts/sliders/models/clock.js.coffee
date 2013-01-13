@@ -1,9 +1,13 @@
 @Sliders.Clock = Ember.Object.extend
-	timezone: 0
-	phase:  0
+  timezone: 0
+  days_shift: 0
+  phase:  0
 
-	clock: (->
-    time = @get("utc") + (@get("timezone") * 1000) - (@get("phase") * 60 * 1000)
+  clock: (->
+    time = @get("utc") + 
+      (@get("timezone") * 1000) - 
+      (@get("phase") * 60 * 1000) + 
+      (@get("days_shift") * 24 * 60 * 60 * 1000)
     date = new Date( time )
     
     #round
@@ -12,24 +16,24 @@
       date.setMinutes(m - m % mod) 
 
     date
-	).property("phase")
+  ).property("phase")
 
-	hour24: (->
-		@_timeFormat @get("clock").getHours()
-	).property("clock")
+  hour24: (->
+    @_timeFormat @get("clock").getHours()
+  ).property("clock")
 
-	hour: (->
-		hour = @get("clock").getHours()
-		hour = hour - 12 if (hour > 12)  
-		hour = 12 if (hour == 0) 
-		@_timeFormat hour
-	).property("clock")
+  hour: (->
+    hour = @get("clock").getHours()
+    hour = hour - 12 if (hour > 12)  
+    hour = 12 if (hour == 0) 
+    @_timeFormat hour
+  ).property("clock")
 
-	minutes: (->
-		@_timeFormat @get("clock").getMinutes()
-	).property("clock")
-	
-	ampm: (->
+  minutes: (->
+    @_timeFormat @get("clock").getMinutes()
+  ).property("clock")
+  
+  ampm: (->
     if @get("hour24") > 11 then "PM" else "AM"
   ).property("clock")
 
@@ -49,7 +53,7 @@
   ).property("clock")
 
   year: (->
-  	@get("clock").getFullYear()
+    @get("clock").getFullYear()
   ).property()
   
   dayNumber: (-> 
@@ -58,24 +62,24 @@
   ).property("clock")
 
   _timeFormat: (number)->
-  	if(number < 10) then '0'+number else number
+    if(number < 10) then '0'+number else number
 
   formattedTime: (->
-  	#spec: 10:25PM / SAT NOV 03 2012
-  	[
-  		@get("hour"),
-  		":",
-  		@get("minutes"),
-  		@get("ampm"),
-  		" / ",
-  		@get("dayName").toUpperCase(),
-  		" ",
-  		@get("month").toUpperCase(),
-  		" ",
-  		@get("dayNumber"),
-  		" ",
-  		@get("year")
-  	].join("")	
+    #spec: 10:25PM / SAT NOV 03 2012
+    [
+      @get("hour"),
+      ":",
+      @get("minutes"),
+      @get("ampm"),
+      " / ",
+      @get("dayName").toUpperCase(),
+      " ",
+      @get("month").toUpperCase(),
+      " ",
+      @get("dayNumber"),
+      " ",
+      @get("year")
+    ].join("")  
   ).property("clock").cacheable()
 
   utc: (-> 

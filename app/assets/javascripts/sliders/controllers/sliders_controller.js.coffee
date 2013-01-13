@@ -20,9 +20,9 @@
   	store.commit();
   	@removeObject(slider)
 
-  updateSliders: (phase) ->
+  updateSliders: (phase, days_shift) ->
   	@get("content").forEach (slider) -> 
-  		slider.updateClock(phase)
+  		slider.updateClock(phase,days_shift)
 
   updateOrder: (newOrder) ->
     for num in [0..newOrder.length - 1]

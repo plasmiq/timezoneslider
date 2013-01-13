@@ -1,7 +1,11 @@
 {{view.location}}
-{{#if isMode12}}
-<span class="time">{{view.clock.hour}}<span class="ticker">:</span>{{view.clock.minutes}}<span class='ampm'>{{view.clock.ampm}}</span></span>
+{{#unless view.isHidden}}
+	{{#if isMode12}}
+	<span class="time">{{view.clock.hour}}<span class="ticker">:</span>{{view.clock.minutes}}<span class='ampm'>{{view.clock.ampm}}</span></span>
+	{{else}}
+		<span class="time">{{view.clock.hour24}}<span class="ticker">:</span>{{view.clock.minutes}}</span>
+	{{/if}}
 {{else}}
-	<span class="time">{{view.clock.hour24}}<span class="ticker">:</span>{{view.clock.minutes}}</span>
-{{/if}}
+	<span class="time">-</span>
+{{/unless}}
 <span class="date">{{view.clock.dayName}} {{view.clock.month}} {{view.clock.dayNumber}}</span>

@@ -6,7 +6,9 @@
   <div class="handle"></div>
 </div>
 <div class="bottomBar">
+  {{#view Ember.Button target="Sliders.TimeController" action="prevDay" class="prevDay"}}{{/view}}
   {{view Sliders.CurrentTimeSliderView clockBinding="view.content.localClock"}}
   {{view Sliders.RemoteTimeSliderView clockBinding="view.content.remoteClock"}}
   {{view Sliders.RulerView timezoneBinding="view.content.timezone"}}
+  {{#view Ember.Button target="Sliders.TimeController" action="nextDay" class="nextDay"}}{{/view}}
 </div>

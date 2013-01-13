@@ -17,6 +17,9 @@
     posistion = time * panel_width / minutes_per_day
     start_position = margin_left - slider_width / 2  
     from_left = start_position + posistion
+    
     if time then display = "block" else display = "none"
+    display = "none" if @get("controller.isDaysShift") && @get("clock.phase") == 0
+
     ["left: ", from_left, "px; display: ", display ].join("")
-  ).property("minutesToday")
+  ).property("minutesToday","controller.isDaysShift")

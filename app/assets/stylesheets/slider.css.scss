@@ -38,12 +38,12 @@
       background: url(reorder_grippers.png);
       cursor: move;
       position: absolute;
-      right: 20px;
+      right: 15px;
       top: 17px;
     }
     .name {
       float: left;
-      margin: 10px 0 0 61px;
+      margin: 10px 0 0 50px;
       position: relative;
       button {
         cursor: pointer;
@@ -60,7 +60,7 @@
       }
     }
     .currentTimeNotifier {
-      margin: 10px 61px 0 0;
+      margin: 10px 50px 0 0;
       float: right;
       text-transform: uppercase;
       .time {
@@ -85,10 +85,12 @@
         }
       }
       .date {
-        margin-left: 5px;
         font-size: 12px;
         color: #615144;
         text-transform: uppercase;
+        width: 75px;
+        text-align: right;
+        display: inline-block;
       }
     }
     .currentTimeNotifier.remote {
@@ -131,6 +133,32 @@
         text-align: center;
       }
     }
+    .prevDay, .nextDay {
+      display: block;
+      position: absolute;
+      top: 15px;
+      cursor: pointer;
+      width: 12px;
+      height: 17px;
+      background: url("panel_arrows.png") transparent;
+      border: 0px;
+    }
+
+    .prevDay {
+      left: 20px;
+      background-position: 0 0;
+      &:hover {
+        background-position: 12px 0;
+      }
+    }
+
+    .nextDay {
+      right: 20px;
+      background-position: 0 17px;
+      &:hover {
+        background-position: 12px 17px;
+      }
+    }
     
     .timeline {
       cursor: pointer;
@@ -160,7 +188,7 @@
         top: 10px;
         height: 25px;
         width: 800px;
-        left: 61px;
+        left: 50px;
         .hour {
           float: left;
           z-index: 20;
